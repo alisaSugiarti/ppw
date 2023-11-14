@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title># Tugas 1 - Crowling Data (22/8/2023 - 29/8/2023) &#8212; Pencarian dan Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Crowling Data PTA';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Normalisasi%20Teks.html" />
+    <link rel="prev" title="Pencarian &amp; Penambangan Web" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pencarian dan Penambangan Web</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Pencarian & Penambangan Web
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong># Tugas 1 - Crowling Data</strong> (22/8/2023 - 29/8/2023)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Topik%20Modelling%20LDA.html">Read File</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/alisaSugiarti/ppw/blob/gh-pages/_sources/Crowling Data PTA.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/alisaSugiarti/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/alisaSugiarti/ppw/issues/new?title=Issue%20on%20page%20%2FCrowling Data PTA.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Crowling Data PTA.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1># Tugas 1 - Crowling Data (22/8/2023 - 29/8/2023)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p>Nama  : Alisa Sugiarti</p>
+<p>NIM   : 200411100194</p>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-1-crowling-data-22-8-2023-29-8-2023">
+<h1><strong># Tugas 1 - Crowling Data</strong> (22/8/2023 - 29/8/2023)<a class="headerlink" href="#tugas-1-crowling-data-22-8-2023-29-8-2023" title="Permalink to this heading">#</a></h1>
+<p>Perintahnya:</p>
+<ol class="arabic simple">
+<li><p>Lakukan crawling data pada <a class="reference external" href="http://pta.trunojoyo.ac.id">pta.trunojoyo.ac.id</a></p></li>
+<li><p>data disimpan dalam bentuk .csv</p></li>
+<li><p>data yang diambil : judul, nama penulis, pembimbing I, pembimbing II, abstrak</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">fak</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
+<span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://pta.trunojoyo.ac.id/c_search/byfac/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span>
+
+<span class="c1"># Membuka file CSV untuk menulis hasil scraping</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hasil_scraping.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Judul&#39;</span><span class="p">,</span> <span class="s1">&#39;Penulis&#39;</span><span class="p">,</span> <span class="s1">&#39;Dosen Pembimbing I&#39;</span><span class="p">,</span> <span class="s1">&#39;Dosen Pembimbing II&#39;</span><span class="p">,</span> <span class="s1">&#39;Abstrak&#39;</span><span class="p">]</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+
+    <span class="c1"># Menulis header ke dalam file CSV</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fak</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;data-id&#39;</span><span class="p">:</span> <span class="s1">&#39;id-1&#39;</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Judul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+            <span class="n">div_elements</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;padding:2px 2px 2px 2px;&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">div_elements</span><span class="p">:</span>
+                <span class="n">span</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">span</span><span class="p">:</span>
+                    <span class="n">span_text</span> <span class="o">=</span> <span class="n">span</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">span_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="c1"># Mengambil link abstrak dari elemen dengan kelas &#39;gray button&#39;</span>
+            <span class="n">abstrak_button</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;gray button&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">abstrak_button</span><span class="p">:</span>
+                <span class="n">abstrak_link</span> <span class="o">=</span> <span class="n">abstrak_button</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+                <span class="n">abstrak_req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">abstrak_link</span><span class="p">)</span>
+                <span class="n">abstrak_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">abstrak_req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+                <span class="n">abstrak</span> <span class="o">=</span> <span class="n">abstrak_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;justify&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">abstrak</span><span class="p">:</span>
+                    <span class="n">abstrak_text</span> <span class="o">=</span> <span class="n">abstrak</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">abstrak_text</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Tidak ditemukan abstrak&quot;</span>
+
+            <span class="c1"># Menulis data ke dalam file CSV</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil ditambahkan:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scraping selesai dan hasil disimpan dalam hasil_scraping.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;PENGARUH FAKTOR-FAKTOR PELATIHAN DAN PENGEMBANGAN TERHADAP PRODUKTIVITAS KERJA DINAS KELAUTAN DAN PERIKANAN KABUPATEN BANGKALAN&#39;, &#39;Penulis&#39;: &#39;SATIYAH&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Dra. Hj. S. Anugrahini Irawati, MM&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Helmi Buyung Aulia,S,ST.SE,M.MT&#39;, &#39;Abstrak&#39;: &#39;ABSTRAK\r\nSatiyah, Pengaruh Faktor-faktor Pelatihan dan Pengembangan Terhadap Produktivitas Kerja Dinas Kelautan dan Perikanan Bangkalan. Dibawah bimbingan Dra.Hj.S.Anugrahini Irawati,MM dan  Helmi Buyung Aulia,S,ST.SE,M.MT\r\nDalam upaya meningkatkan produktivitas kerja tidaklah mudah, oleh karena itu salah satu usaha agar produktivitas meningkat adalah menerapkan program pelatihan dan pengembangan sumber daya manusia (SDM) perlu dilaksanakan dalam instansi agar produktivitas yang tinggi dapat tercapai dengan meningkat kemampuan pegawai agar dapat bekerja secara efektif dan efisien. Dengan adanya pelatihan dan pengembnagan diharapkan pegawai juga mampu menyesuaikan diri dengan kebutuhan-kebutuhan baru atas sikap, tingkah laku keterampilan dan pengetahuan sesuai dengan tuntutan perubahan. Dengan adanya pelatihan dan pengembangan pegawai yang baik dapat mendukung terciptanya suasana kerja yang kondusif dalam instansi, sehingga dengan sendirinya produktivitasi kerja akan meningkat.\r\nTujuan penelitian ini adalah untuk mengetahui seberapa besar Pengaruh Faktor-faktor Pelatihan dan Pengembangan Terhadap Produktivitas Kerja Dinas Kelautan dan Perikanan Bangkalan. Untuk mengukur dan menganalisa hubungan antara kedua variabel di atas, peneliti menggunakan pendekatan observasional analitik, yaitu melakukan pengamatan secara langsung kepada responden dengan penyebaran kuisioner untuk dianalisis. Penelitian ini merupakan penelitian populasi dengan 30 responden sebagai sampel serta diolah dengan SPSS Versi 13.00 dan dianalisis dengan menggunakan metode statistik, yaitu metode non probality sampling secara simple random sampling.\r\nKesimpulan penelitian ini adalah (1a). Faktor-faktor pelatihan dan pengembangan yang terdiri dari, perbedaan individu pegawai (X1), hubungan dengan analisis jabatan (X2), motivasi (X3), partisipasi aktif (X4), seleksi peserta (X5), seleksi  instruktur (X6) dan metode pelatihan dan pengembangan (X7) mempunyai pengaruh simultan terhadap produktivitas kerja pegawai Dinas Kelautan dan Perikanan Kabupaten Bangkalan. Terbukti dengan nilai koefisien determinasi berganda (R2) atau R square = 0,751, Fhitung 9,500 lebih besar dari Ftabel 2,37. (1b) Faktor hubungan dengan analisis jabatan tidak berpengaruh secara parsial terhadap produktivitas kerja pegawai Dinas Kelautan dan Perikanan Kabupaten Bangkalan. (2) Pengujian Hipotesis kedua menunjukkan bahwa variabel motivasi (X3) tidak terbukti, karena dilihat dari nilai thitung Sebesar 6,442 menunjukkan bahwa seleksi peserta (X5) yang mempunyai pengaruh (dominan) terhadap produktivitas kerja pegawai pada instansi Dinas Kelautan dan Perikanan Bangkalan. \r\n\r\nKata kunci : Dinas Kelautan dan Perikanan, Faktor-faktor Pelatihan dan Pengembangan,  Produktivitas Kerja.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;ANALISIS FAKTOR â\x80\x93 FAKTOR YANG MEMPENGARUHI PENYALURAN KREDIT USAHA RAKYAT PADA UMKM DI BRI UNIT LEMAH DUWUR BANGKALAN&#39;, &#39;Penulis&#39;: &#39;Zeni Amaliyah&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Ris Yuwono Yudo Nugroho, SE, MSi&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Bondan Satriawan, SE., MEcon.,St.&#39;, &#39;Abstrak&#39;: &#39;ABSTRAK\r\nStudi ini dilakukan untuk mengetahui dan mengkaji tentang pengaruh antara faktor-faktor (omset usaha, lama usaha, modal usaha, jumlah tanggungan keluarga, jarak lokasi usaha dengan BRI, jenis usaha) terhadap penyaluran Kredit Usaha Rakyat di BRI Unit Lemah Duwur bangkalan. Metode yang digunakan dalam penelitian ini adalah analisis regresi berganda dan dilanjutkan dengan pengujian statistik untuk mengetahui seberapa besar pengaruh enam variabel bebas terhadap variabel terikat secara parsial maupun simultan . Data yang digunakan diperoleh dari survey peneliti terhadap debitur BRI Unit Lemah Duwur, Penentuan jumlah responden dalam penelitian ini menggunakan Rumus Slovin, dari 767 debitur diperoleh 100 responden untuk dijadikan sampel dalam penelitian ini. \r\nBerdasarkan penelitian diperoleh hasil bahwa omset usaha berpengaruh positif signifikan terhadap jumlah kredit yang disalurkan, lama usaha dan modal usaha juga berpengaruh positif signifikan terhadap jumlah kredit yang disalurkan. Jumlah tanggungan keluarga dan jarak lokasi usaha dengan BRI berpengaruh negative tidak signifikan terhadap jumlah kredit yang disalurkan, hal ini dikarenakan jumlah tanggungan keluarga responden BRI Unit Lemah Duwur rata-rata hanya dua orang, begitu juga dengan jarak lokasi usaha, rata-rata jarak lokasi usaha responden dengan BRI Unit Lemah Duwur hanya 3 km sehingga masih mudah dijangkau oleh BRI. Sedangkan variabel jenis usaha berpengaruh secara positif signifikan terhadap jumlah kredit yang disalurkan, jenis usaha yang semakin keperdagangan maka akan menaikan jumlah kredit yang disalurkan, hal ini karena jenis usaha perdagangan memiliki prospek yang baik dan perputaran uang yang cepat sehingga jenis usaha yang paling banyak di biayai oleh BRI Unit Lemah Duwur adalah jenis usaha perdagangan. \r\n\r\n\r\n\r\nKata Kunci: Jumlah kredit yang disalurkan, omset usaha, lama usaha, modal usaha, jumlah tanggunagn keluarga, jarak lokasi usaha dengan BRI, jenis usaha.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;PENTINGNYA KOMPETENSI PEJABAT PENGADAAN BARANG/JASA PEMERINTAH KOTA KABUPATEN BANGKALAN DALAM MELAKSANAKAN PROSEDUR PENGADAAN BARANG/JASA BERDASARKAN PERPRES 54 TAHUN 2010&#39;, &#39;Penulis&#39;: &#39;Nida Qolbi&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Mohammad Djasuli,SE., M.Si., QIA&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Gita Arasy Harwida,SE.,Ak.,M.Tax,QIA&#39;, &#39;Abstrak&#39;: &#39;Abstrak : Pentingnya Kompetensi Pejabat Pengadaan Barang/Jasa Pemerintah Kota Kabupaten Bangkalan Dalam Melaksanakan Prosedur Pengadaan Barang/Jasa Menurut Perpres 54 Tahun 2010. Tujuan dari penelitian ini adalah Untuk mengetahui pengimplementasian perpres 54 tahun 2010 dan kesesuaian kompetensi pejabat pengadaan barang/jasa menurut perpres 54 tahun 2010. Informan dalam penelitian ini adalah Pejabat pengadaan barang/jasa di Kabupaten Bangkalan. Data dikumpulkan dari wawancara langsung dengan para informan dan dianalisa dengan fenomenologi. Hasil dari penelitian ini menunjukkan bahwa pejabat pengadaan di Pemerintahan Kabupaten Bangkalan sudah mengimplementasikan Perpres 54 tahun 2010, namun belum secara keseluruhan. dikarenakan keterbatasan dana, kelengkapan administrasi yang masih kurang, dan belum tersedianya kantor khusus pengadaan barang/jasa. Berkaitan dengan kompetensi yang dimiliki oleh pejabat pengadaan menunjukkan bahwa kompetensi yang dimiliki Pejabat Pengadaan/ULP di Kabupaten Bangkalan masih tergolong rendah. Hal ini dibuktikan dari hasil realisasi pengadaan barang dan jasa pemerintah Kabupaten Bangkalan baik fisik maupun non fisik.\r\n\r\nKata Kunci: Pengadaan barang/jasa, Perpres 54, pejabat pengadaan ,Implementasi dan Kompetensi&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;ANALISIS PERLAKUAN AKUNTANSI TABUNGAN DENGAN SISTEM WADIAH PADA BANK JATIM SYARIAH SAMPANG&#39;, &#39;Penulis&#39;: &#39;Rr. ALVIN SHARAS&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Prof. Dr. H. M. Nizarul Alim, SE., M.Si., Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Rita Yuliana, SE,M.S.A., Ak&#39;, &#39;Abstrak&#39;: &#39;ABSTRAK\r\n\r\nWadiah telah berkembang dalam dunia perbankan syariah Indonesia saat ini. Bank syariah mengaplikasikannya dalam bentuk tabungan sesuai dengan undang-undang perbankan syariah. Hal ini dapat dilihat dari adanya standar akuntansi untuk wadiah. Penelitian ini bertujuan untuk mengetahui praktik pengelolaan wadiah di bank syariah dan perlakuan akuntansi untuk wadiah. Metode penelitian yang digunakan dalam penelitian ini adalah studi kasus. Peneliti menjadikan Bank Jatim Syariah Sampang sebagai tempat penelitian dikarenakan di tepat tersebut mempunyai produk tabungan wadiah yang semakin berkembang. Peneliti mendapatkan data langsung dari informan kunci melalui wawancara, dimana data tersebut direkam dan dibantu alat tulis lainnya.\r\nHasil dari penelitian ini adalah pengelolaan tabungan wadiah di Bank Jatim Syariah Sampang sudah sesuai dengan standar akuntansi untuk wadiah. Wadiah di Bank Jatim Syariah Sampang dikelola dalam bentuk tabungan dan giro yang bersifat adh-dhamanah. Namun dana wadiah di Bank Jatim Syariah Sampang dicampur dengan penghimpunan dana lainnya. Sedangkan untuk perlakuan akuntansi wadiah sudah mengikuti standar yang digunakan.\r\n\r\nKata kunci: wadiah, tabungan wadiah, dan perlakuan akuntansi.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;PERSEPSI MAHASISWA TENTANG MODEL PEMBELAJARAN BERBASIS ASISTENSI PADA MATA KULIAH AKUNTANSI PENGANTAR AKUNTANSI I DAN II DI PROGRAM STUDI AKUNTANSI UNIVERSITAS TRUNOJOYO MADURA&#39;, &#39;Penulis&#39;: &#39;MOH. MUKROM&#39;, &#39;Dosen Pembimbing I&#39;: &#39;RITA YULIANA, SE., MSA., Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;JUNAIDI, SE., MSi., Ak&#39;, &#39;Abstrak&#39;: &#39;ABSTRAK\r\n\r\nKeberadaan beasiswa di Fakultas Ekonomi yang jumlahnya lumayan besar dan kuantitasnya cukup banyak, memungkinkan mahasiswa mengakses beasiswa tersebut dari bermacam jenis beasiswa. Sejak tahun 2010 beasiswa asistensi akuntansi pengantar diterpakan oleh Fakultas Ekonomi. Penerapan asistensi diharapkan dapat membantu mahasiswa akuntansi khususnya mata kuliah akuntansi pengantar 1 dan 2. Disisi lain penerapan asistensi merupakan program beassiswa yang sampai saat ini belum ada penilaian dari pelaksanaannya tersebut.\r\nJenis penelitian yang digunakan dalam penelitian ini adalah jenis deskriptif dengan menggunakan pendekatan kualitatif. Dengan metode ini peneliti berupaya memberikan gambaran secara terperinci terkait penerapan persepsi mahasiswa terhadap penerapan asistensi akuntansi pengantar. Persepsi tersebut akan memberikan penjelasan dari 3 komponen yaitu; kompetensi pedagogi, kompetensi professional, dan kompetensi sosial.\r\nDari hasil analisis data yang diperoleh dari hasil wawancara yang dilakukan dengan beberapa informan dapat ditarik beberapa kesimpulan terkait dengan pelaksanaan asistensi akuntansi pengantar. Keterampilan asdos dalam penyampaian materi serta kemapuan menghidupkan suasana kelas masih kurang, jadwal serta ruang kelas untuk pelaksanaan perkuliahan asdos kurang diperhatikan oleh Fakultas sehingga terkadang mahasiswa kebingungan mencari ruangan, kedisiplinan masih belum terlaksana sebagaimana mestinya. Pergaulan antara mahasiswa dengan asdos sejauh ini bisa terjalin dengan sejahtera. Namun terkadang asdos masih kurang dalam penguasaan diri. \r\n\r\nKata kunci: Persepsi Mahasiswa, Asistensi, Akuntansi Pengantar&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;ANALISIS FUNGSI LAKIP SEBAGAI PENGUKURAN KINERJA INSTANSI PEMERINTAH (STUDI KASUS PADA DINAS KOPERASI UMKM KAB.BANGKALAN)&#39;, &#39;Penulis&#39;: &#39;KARTIKA RUSNINDITA&#39;, &#39;Dosen Pembimbing I&#39;: &#39;JUNAIDI SE,M.Si.,Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;NURHAYATI SE,MSA.,Ak&#39;, &#39;Abstrak&#39;: &#39;ABSTRAK\r\n\r\nPenelitian ini bertujuan untuk mengetahui sejauhmana LAKIP berfungsi sebagai pengukuran kinerja instansi pemerintah, berdasarkan ketentuan yang berlaku (PP 8/2006), dengan studi kasus Dinas Koperasi UMKM Kabupaten Bangkalan.\r\nMetodologi penelitian yang digunakan adalah kualitatif deskriptif dengan pendekatan studi kasus. Pengumpulan data yang diperoleh melalui informan yang terkait, media cetak, dokumen, perundangan yang berlaku. Analisa data dilakukan melalui tiga tahapan, yaitu reduksi data, penyajian data dan penarikan simpulan.\r\nHasil penelitian menunjukkan bahwa LAKIP telah dibuat setiap berakhirnya tahun anggaran, namun masih belum sepenuhnya berdasarkan pada ketentuan yang berlaku (PP 8/2006). Hal ini dapat diketahui dari bentuk LAKIP, misalnya: (1). sistematika penulisan (format); (2). waktu penyampaian LAKIP terlambat. Sedangkan unsur isi LAKIP, misalnya: (1). pengalokasian anggaran dari suatu program/kegiatan untuk kepentingan publik masih rendah; (2). perencana pengalokasian anggaran kurang cermat mengantisipasi perkembangan  dari potensi, peluang dan kendala yang ada atau yang mungkin timbul.\r\n\r\n\r\nKata Kunci: PP 8/2006, LAKIP Dinas Koperasi UMKM Bangkalan.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;PENGARUH FAKTOR-FAKTOR TINGKAT KESULITAN DALAM PENGISIAN SPT MASA TERHADAP KEPATUHAN WAJIB PAJAK ORANG PRIBADI DI KABUPATEN PAMEKASAN&#39;, &#39;Penulis&#39;: &#39;DEWI AGUS NORFITRIAH&#39;, &#39;Dosen Pembimbing I&#39;: &#39;ANIS WULANDARI, SE., M.SA., Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;NURUL KOMPYURINI, SE., Ak., MAk&#39;, &#39;Abstrak&#39;: &#39;Agus Norfitriah, Dewi. 2012. Pengaruh Faktor-Faktor Tingkat Kesulitan dalam Pengisian SPT Masa terhadap Kepatuhan Wajib Pajak Orang Pribadi di Kabupaten Pamekasan\r\nPembimbing I: Anis Wulandari, SE., M.SA., Ak, Pembimbing II: Nurul Kompyurini, SE., Ak, MAk\r\n\r\nAbstraksi\r\nSejak penerapan self assessment system, diperlukan kesadaran dan kepatuhan dari Wajib Pajak untuk melaksanakan kewajiban perpajakan sesuai dengan peraturan perpajakan yang berlaku. Dalam kenyataan dan prakteknya, masih banyak Wajib Pajak yang tidak patuh, yang tidak melaksanakan kewajiban perpajakannya secara benar dan tepat waktu. Kepatuhan Wajib Pajak yang dimaksud adalah kepatuhan membayar pajak tepat bayar (patuh material), kepatuhan mengisi dan melaporkan SPT Masa tepat waktu (patuh formal), dan kepatuhan melalui pemeriksaan pajak. Terdapat lima faktor tingkat kesulitan pengisian SPT yang berpengaruh terhadap kepatuhan Wajib Pajak Orang Pribadi dalam hal pengisian SPT masa. Faktor pertama yaitu pengetahuan perpajakan Wajib Pajak. Faktor kedua yaitu kesadaran Wajib Pajak. Faktor ketiga yaitu petunjuk pengisian. Faktor keempat yaitu kompleksitas isian formulir SPT. Faktor kelima yaitu Peraturan Perpajakan.\r\nPenelitian ini bertujuan untuk mengetahui pengaruh baik secara parsial maupun simultan kelima faktor tingkat kesulitan pengisian SPT Masa terhadap kepatuhan Wajib Pajak Orang Pribadi di Kabupaten Pamekasan.\r\nMetode penelitian yang digunakan adalah pendekatan kuantitatif. Populasi dan sampel dalam penelitian ini adalah Wajib Pajak Orang Pribadi se Kabupaten Pamekasan yang mempunyai kewajiban di KPP Pratama Pamekasan pada tahun 2011. Analisis data yang digunakan adalah model analisis regresi linear berganda dengan memanfaatkan software SPSS versi 16.0. Uji asumsi dalam penelitian ini yang harus dilakukan dalam model regresi tersebut meliputi, Uji Normalitas, Uji Multikolinieritas, dan Uji Heteroskedastisitas. Serta, Uji hipotesis dalam penelitian ini menggunakan uji-t dan uji-f, dan Uji Koefisien Determinasi (R2).\r\nHasil penelitian menunjukkan bahwa untuk uji secara parsial tingkat kesadaran Wajib Pajak, kompleksitas isian formulir SPT Masa, Peraturan Perpajakan memiliki pengaruh yang tidak signifikan terhadap kepatuhan Wajib Pajak Orang Pribadi di Kabupaten Pamekasan, sedangkan pengetahuan perpajakan serta petunjuk pengisian SPT Masa dapat dikatakan bahwa ada pengaruh terhadap kepatuhan Wajib Pajak Orang Pribadi di Kabupaten Pamekasan. Serta pengetahuan perpajakan, tingkat kesadaran Wajib Pajak, petunjuk pengisian SPT Masa, kompleksitas isian formulir SPT Masa, Peraturan Perpajakan secara bersama-sama/simultan memiliki pengaruh secara signifikan terhadap kepatuhan Wajib Pajak. \r\n\r\nKata kunci: Faktor-Faktor Tingkat Kesulitan Pengisian SPT Masa, dan Kepatuhan Wajib Pajak Orang Pribadi.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;PENGARUH UKURAN PERUSAHAAN, PROFITABILITAS, FINANCIAL LEVERAGE, DAN HARGA SAHAM DALAM PRAKTIK PERATAAN LABA (INCOME SMOOTHING)&#39;, &#39;Penulis&#39;: &#39;IKA YULI NOVARIANTI&#39;, &#39;Dosen Pembimbing I&#39;: &#39;YUDHANTA SAMBHARAKRESHNA,SE,M.Si,Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;RINDAH FEBRIANA, SE, M.ACC,Ak&#39;, &#39;Abstrak&#39;: &#39;Tujuan utama dalam penelitian ini ialah untuk menguji secara empiris variabel-variabel ukuran perusahaan, profitabilitas, financial leverage dan harga saham terhadap perataan laba (income smoothing) pada perusahaan manufaktur automotive go public di Bursa Efek Indonesia tahun 2006-2010 baik secara parsial dan simultan. Penelitian ini menggunakan pendekatan kuantitatif, dimana jenis data yang digunakan adalah data sekunder dalam bentuk laporan keuangan yang diperoleh dari Indonesian Capital Market Directory periode tahun 2006-2010, dengan sampel sebanyak 13 perusahaan manufaktur automotive yang go public. Analisis terhadap data-data yang diperoleh dilakukan dengan menggunakan analisis regresi linier berganda dan uji F dan t.\r\nHasil penelitian menunjukkan bahwa secara parsial variabel ukuran perusahaan, profitabilitas, financial leverage dan harga saham berpengaruh terhadap praktik perataan laba (income smoothing); sedangkan secara simultan, ukuran perusahaan berpengaruh signifikan terhadap perataan laba (income smoothing), profitabilitas berpengaruh signifikan terhadap perataan laba (income smoothing), financial leverage berpengaruh tidak signifikan terhadap perataan laba (income smoothing), dan harga saham berpengaruh terhadap perataan laba (income smoothing).\r\nKata kunci: Perataan laba (Income smoothing), Ukuran perusahaan, Profitabilitas, Financial Leverage, dan Harga saham.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Menguak Fenomena Penurunan Kualitas Laporan Keuangan Pemerintah Daerah AB: Studi Interpretif&#39;, &#39;Penulis&#39;: &#39;Yuyun Komaria&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Rahmat Zuhdi, SE., M.SA., Ak., QIA&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Nur Hayati, SE., M.SA., Ak., QIA&#39;, &#39;Abstrak&#39;: &#39;Penelitian ini didasarkan pada fenomena penurunan opini LKPD kabupaten/kota di Jawa Timur, khususnya laporan keuangan pemda AB sebagai satu-satunya LKPD di Jawa Timur yang mendapat predikat WTP pada tahun 2006, selanjutnya mengalami penurunan kualitas di tahun 2007, 2008, dan 2009 yang berturut-turut mendapat opini TW, TMP, dan TW. Tujuan dari penelitian ini adalah menguak alasan terjadinya fenomena penurunan kualitas laporan keuangan pemda AB. Penelitian ini menggunakan pendekatan fenomenologi. Data dikumpulkan dari wawancara mendalam dengan para informan, kemudian dianalisa menggunakan model Creswell.\r\nHasil penelitian menunjukkan (1) penerapan SIKD pemda AB belum terintegrasi sehingga menyebabkan data aset tetap tidak terdokumentasi dengan baik, (2) pemda AB belum memaksimalkan upaya peningkatan kualitas sumber daya manusia yang memiliki kemampuan akuntansi, (3) Adanya perbedaan kebijakan antara Kementerian Kesehatan dan Kementerian Dalam Negeri menimbulkan ketidaksepahaman pemerintah daerah yang satu dengan lainnya dalam menafsirkan kebijakan tersebut, sehingga setiap pemerintah daerah menggunakan kebijakan yang berbeda-beda dalam pengelolaan dana Jamkesmas di daerahnya.\r\n\r\nKata kunci: penurunan opini, kualitas laporan keuangan pemerintah daerah&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Analisis Perbandingan Antara Model Zmijewski (X-Score), Zavgren (Logit), dan Altman (Z-Score)  Dalam Memilih Prediktor Kebangkrutan Terakurat Pada Perusahaan yang Bangkrut di Bursa Efek Indonesia (BEI&#39;, &#39;Penulis&#39;: &#39;Dian Yunita Syaiful&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Yudhanta Sambharakreshna, S.E., M.Si., Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Rita Yuliana, S.E., MSA., Ak&#39;, &#39;Abstrak&#39;: &#39;Para investor dan kreditur sebelum menanamkan dananya pada suatu perusahaan akan selalu melihat terlebih dahulu bagaimana kondisi keuangan perusahaan tersebut masa kini dan yang akan datang. Oleh karena itu, analisis dan prediksi atas kondisi keuangan perusahaan yang akurat adalah sangat penting. Kesalahan prediksi terhadap kelangsungan operasi suatu perusahaan di masa yang akan datang dapat berakibat fatal yaitu kehilangan pendapatan atau investasi yang telah  ditanamkan  pada  suatu  perusahaan. Pentingnya  suatu  model prediksi kebangkrutan suatu perusahaan menjadi hal yang sangat dibutuhkan oleh berbagai pihak  seperti  pemberi pinjaman, investor, pemerintah, akuntan, dan manajemen.\r\nTujuan dari penelitian ini untuk mengetahui perbedaan dari ketiga analisis model dalam memprediksi kebangkrutan yaitu antara model Zmijewski (X-Score), Zavgren (Logit), dan Altman (Z-Score). Ketiga model ini dikembangkan dan dibentuk oleh perbandingan rasio-rasio keuangan dalam mengidentifikasi hasil akhir dari prediksi kebangkrutan. \r\nDalam penelitian ini model Zmijewski menggunakan cummulative normal distribution, model Zavgren menggunakan logistic function, dan multivariate discriminant pada model Altman. Untuk menguji perbedaan dari ketiga model tersebut digunakan SPSS 16 menggunakan uji Kruskal-Wallis (uji H). Sampel yang digunakan adalah populasi perusahaan yang bangkrut pada tahun 2009 di Bursa Efek Indonesia (BEI) yaitu sebanyak 9 perusahaan dengan periode tahun 2007-2008 (dua tahun sebelum kebangkrutan).\r\n\tHasil penelitian dari ketiga model menunjukkan bahwa secara umum prediksi kebangkrutan pada perusahaan yang bangkrut sebagian besar diprediksi dalam keadaan bangkrut. Hal ini terkait dengan rasio perputaran aktiva perusahaan, laba perusahaan, dan total hutang disajikan dalam ketiga model tersebut. Rasio-rasio tersebut cukup berpengaruh dalam memprediksi kesulitan keuangan perusahaan. Selain itu, disimpulkan bahwa terdapat perbedaan antara ketiga model tersebut, dan antara ketiga model prediksi kebangkrutan tersebut yang paling akurat adalah model Altman. Dari hasil penelitian di atas disarankan pada penelitian selanjutnya sebaiknya memperluas sampel perusahaan agar dapat memperoleh hasil yang lebih akurat.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;analisis kinerja keuangan pada UKM ( Usaha kecil menengah) panca surya&#39;, &#39;Penulis&#39;: &#39;nurhayati&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Robiatul Auliyah&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Anis Wulandari&#39;, &#39;Abstrak&#39;: &#39;ABSTRAKSI\r\n\r\nNurhayati, Analisis Kinerja Keuangan pada UKM (Usaha Kecil Menengah) CV. Panca Surya. Dibawah bimbingan Robiatul Auliyah, S.E.,M.SA dan Anis Wulandari, SE; M.SA; Ak\r\nPada mulanya laporan keuangan bagi suatu perusahaan hanyalah sebagai â\x80\x9calat pengujiâ\x80\x9d dari pekerjaan bagian pembukuan. Akan tetapi, untuk selanjutnya laporan keuangan tidak hanya sebagai alat penguji saja, melainkan sebagai dasar untuk menentukan atau menilai posisi keuangan perusahaan. Analisa laporan keuangan sangat penting untuk mengetahui kelemahan-kelemahan yang dimiliki perusahaan, agar dapat diusahakan melakukan perbaikan dalam penyusunan rencana untuk tahun-tahun yang akan datang. Sehingga, kelemahan-kelemahan  tersebut dapat diperbaiki dan hasil-hasil yang dianggap sudah cukup baik di tahun-tahun lalu harus dipertahankan untuk tahun mendatang. Hasil analisa tersebut dapat digunakan untuk mengambil keputusan bagi pihak-pihak yang berkepentingan Agar laporan keuangan dapat berarti bagi pihak-pihak yang berkepentingan, maka perlu mengadakan analisa hubungan dari berbagai pos-pos dalam suatu laporan keuangan yang sering disebut analisis laporan keuangan. Dalam hal ini, analisa rasio dapat dipakai dalam memberikan gambaran keadaan keuangan yang sebenarnya mengenai perkembangan perusahaan dan sehat tidaknya perusahaan tersebut melakukan usaha.\r\nTujuan penelitian ini adalah untuk mengetahui kinerja keuangan CV Panca Surya- Sampang dari tahun 2007-2010 dengan melakukan analisa terhadap laporan keuangannya, sehingga dapat diketahui sejauh mana peran analisis laporan keuangan dalam mengukur kinerja keuangan perusahaan, jika ditinjau dari likuiditas, solvabilitas, aktivitas dan profitabilitasnya. \r\nJenis penelitian yang digunakan adalah penelitian kualitatif dengan pendekatan deskriptif. Jenis data yang digunakan data sekunder. Teknik yang digunakan untuk memperoleh data yakni dengan cara melakukan studi pustaka dan dokumentasi. Sedangkan alat analisisnya menggunakan analisis rasio keuangan yang meliputi: rasio likuiditas, rasio solvabilitas, rasio aktivitas dan rasio profitabilitas.\r\nHasil dari penelitian ini menunjukkan bahwa di tahun 2007 sampai dengan tahun 2010, CV Panca Surya-Sampang mampu memenuhi kewajiban jangka pendek maupun jangka panjangnya. Begitu pula, dengan kemampuan CV Panca Surya-Sampang dalam menghasilkan laba/keuntungan dapat dikatakan cukup berhasil. Sehingga, jika suasana atau situasi seperti ini bisa dipertahankan, maka secara otomatis kinerja perusahaan kedepannya akan selalu dalam keadaan baik dan terkendali.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Studi dampak penerapan IFRS vs SAK konfergensi terhadap kinerja keuangan perusahaan (studi kasus pada PT Berlian Laju Tanker Tbk)&#39;, &#39;Penulis&#39;: &#39;samuel krissetiawan&#39;, &#39;Dosen Pembimbing I&#39;: &#39;anita carolina&#39;, &#39;Dosen Pembimbing II&#39;: &#39;rindah febrina&#39;, &#39;Abstrak&#39;: &#39;ABSTRAKSI\r\n\r\nInternational Financial Reporting Standard (IFRS) merupakan standar akuntansi internasional yang penting mengingat kebutuhan pasar global akan adanya standar akuntansi yang berkualitas tinggi. Adanya penerapan IFRS pada Standar Akuntansi Keuangan (SAK) mengakibatkan perubahan dalam laporan keuangan perusahaan khususnya terhadap kinerja keuangan perusahaan yang dihasilkan.\r\n\r\nPenelitian ini bertujuan untuk memahami dampak penerapan IFRS vs SAK Konvergensi terhadap kinerja laporan keuangan perusahaan, serta untuk mengetahui adanya perbedaan kinerja keuangan yang dihasilkan menurut IFRS vs SAK Konvergensi pada PT Berlian Laju Tanker, Tbk. Penelitian ini menggunakan Software Microsoft Excel untuk menghitung rasio keuangan serta uji Sign Test, dan uji Wilcoxon untuk mengetahui adanya perbedaan-perbedaan diantara dua standar akuntansi yaitu IFRS dan SAK terhadap kinerja keuangan perusahaan signifikan secara statistik. Secara spesifik sampel penelitian yang digunakan yaitu laporan keuangan PT Berlian Laju Tanker, Tbk pada tahun 2006-2010.\r\n\r\nHasil penelitian ini menunjukkan bahwa penerapan IFRS terhadap laporan keuangan perusahaan tidak bisa dilepaskan pada standar akuntansi lokal dalam hal ini SAK dimana perlu penyesuaian sehingga akan terjadi perbedaan dalam penyajian yang disajikan dibawah IFRS dan SAK. \tBeberapa rasio keuangan seperti rasio perputaran piutang usaha, rasio perputaran persediaan, rasio perputaran aset tetap, rasio perputaran total aset, rasio laba kotor, rasio total utang terhadap total modal dan rasio total utang terhadap ekuitas yang berbeda signifikan secara hasil uji statistik. Sehingga terdapat perbedaan atas SAK konvergensi terhadap IFRS sepanjang periode 2006-2010.\r\n\r\nKata Kunci: IFRS, SAK, Kinerja Keuangan Perusahaan.&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Praktik Penyusunan Keuangan di Gereja (Studi Kasus Pada Gereja Kristen Jawi Wetan Bangkalan)&#39;, &#39;Penulis&#39;: &#39;Halomoan Hutahayan&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Rita Yuliana&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Anita Carolina&#39;, &#39;Abstrak&#39;: &#39;ABSTRAKSI\r\n\r\n\r\nOrganisasi laba maupun organisasi nirlaba diharuskan dapat menyusun laporan keuangan sesuai dengan standar akuntansi keuangan yang berlaku. Seperti halnya dengan gereja, sebagai organisasi nirlaba tentunya gereja harus menyusun laporan keuangan untuk transparansi keuangan sehingga kondisis keuangan gereja dan pengelolaan dananya dapat dipertanggungjawabkan pada pihak-pihak yang berkepentingan.\r\n\r\nPenelitian ini bertujuan untuk mengetahui apakah kebijakan akuntansi maupun pelaporan keuangan yang diterapkan GKJW Bangkalan sudah sesuai dengan PSAK No. 45 dan menunjukkan bagaimana bentuk laporan keuangan yang diterapkan oleh GKJW Bangkalan.\r\n\r\nDari hasil penelitian ini ditemukan bahwa laporan keuangan GKJW Bangkalan hanya menggunakan laporan keuangan yang sederhana. Tetapi dalam prakteknya, penyusunan laporan keuangan menurut PSAK No.45 belum mampu diterapkan oleh GKJW Bangkalan tentang organisasi nirlaba yaitu tidak adanya laporan posisi keuangan, laporan aktivitas, catatan atas laporan keuangan sehingga penyusunan laporan keuangan dilakukan dengan sederhana. \r\n\r\nKata kunci: PSAK No.45, Organisasi Nirlaba, Laporan Keuangan&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Analsis Kesiapan Daerah Menerima Wewenang PBB menjadi Pajak Daerah&#39;, &#39;Penulis&#39;: &#39;Imam Agus Faisol&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Dr. Bambang Haryadi, S.E., M.Si., Ak&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Gita Arasy Harwida, SE., M.Tax. Ak., QIA&#39;, &#39;Abstrak&#39;: &#39;&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil ditambahkan: {&#39;Judul&#39;: &#39;Pengaruh Kecenderungan Personal serta Persepsi atas Pemeriksaan, Keadilan, Sistem Administrasi, dan Redistribusi Pendapatan Negara terhadap Tax Evasion&#39;, &#39;Penulis&#39;: &#39;Ova Nasukha Santoso&#39;, &#39;Dosen Pembimbing I&#39;: &#39;Junaidi, S.E., M.Si., Ak.&#39;, &#39;Dosen Pembimbing II&#39;: &#39;Anita Carolina, S.E., M.Bus.Adv., Ak., QIA., CA.&#39;, &#39;Abstrak&#39;: &#39;Pengelakan pajak merupakan suatu hal yang sudah umum saat ini. Setiap orang tentu tidak ingin membayar pajak karena menurutnya hal tersebut dapat mengurangi penghasilan yang diperolehnya. Fenomena ini sangat merugikan negara karena sebagian besar pendapatan negara bersumber dari setoran pajak masyarakat. Penelitian ini bertujuan untuk mengetahui faktor-faktor yang mempengaruhi pengelakan pajak. Penelitian ini dilakukan pada Wajib Pajak Orang Pribadi Pengusaha. Jumlah sampel dalam penelitian ini adalah 106 responden. Penetapan sampel dengan  menggunakan  metode  convenience sampling. Penelitian  ini  menggunakan pendekatan  kuantitatif,  yaitu  penelitian  yang menitikberatkan  pada  pengujian hipotesis. Penelitian dilakukan dengan menggunakan uji kualitas data, uji asumsi klasik, uji-t, dan uji-F. Pengolahan data dengan program SPSS versi 18.0 for Windows. Hasil dari penelitian ini yaitu secara parsial (uji-t), hanya pemeriksaan pajak yang berpengaruh terhadap pengelakan pajak. Sedangkan kecenderungan personal, keadilan pajak, sistem administrasi perpajakan, dan redistribusi pendapatan negara tidak berpengaruh terhadap pengelakan pajak. Secara simultan (uji-F), penelitian ini menunjukkan adanya pengaruh antara variabel independen dengan variabel dependen. Hasil  perhitungan  nilai  koefisien  determinasi  (R2)  adalah  0,105. Nilai  ini menunjukkan  bahwa  10,5%  pengelakan pajak dipengaruhi oleh variabel independen, sedangkan sisanya diketahui sebesar 80,5% dipengaruhi oleh variabel lain di luar penelitian.\r\n\r\nKata kunci:\tpengelakan pajak, kecenderungan personal, pemeriksaan pajak, keadilan pajak, sistem administrasi perpajakan, redistribusi pendapatan negara, wajib pajak orang pribadi pengusaha&#39;}
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-3a8e6e904520&gt;</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fak</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">19</span>         <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">items</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;data-id&#39;</span><span class="p">:</span> <span class="s1">&#39;id-1&#39;</span><span class="p">})</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="s2">             # Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">468</span><span class="s2">                 self._validate_conn(conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">             except (SocketTimeout, BaseSSLError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1095</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">         if conn.is_closed:</span>
+<span class="ne">-&gt; </span><span class="mi">1097</span><span class="s2">             conn.connect()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">         if not conn.is_verified:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">642</span><span class="s2">         sock_and_verified = _ssl_wrap_socket_and_match_hostname(</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">             sock=sock,</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">             cert_reqs=self.cert_reqs,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">_ssl_wrap_socket_and_match_hostname</span><span class="nt">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span><span class="s2">             server_hostname = normalized</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">783</span><span class="s2">     ssl_sock = ssl_wrap_socket(</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="s2">         sock=sock,</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span><span class="s2">         keyfile=key_file,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">         pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">471</span><span class="s2">     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">472</span><span class="s2">     return ssl_sock</span>
+<span class="g g-Whitespace">    </span><span class="mi">473</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">_ssl_wrap_socket_impl</span><span class="nt">(sock, ssl_context, tls_in_tls, server_hostname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span><span class="s2">         return SSLTransport(sock, ssl_context, server_hostname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">515</span><span class="s2">     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span><span class="s2">         # SSLSocket class handles server_hostname encoding before it calls</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span><span class="s2">         # ctx._wrap_socket()</span>
+<span class="ne">--&gt; </span><span class="mi">513</span><span class="s2">         return self.sslsocket_class._create(</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span><span class="s2">             sock=sock,</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span><span class="s2">             server_side=server_side,</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">_create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1069</span><span class="s2">                         # non-blocking</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span><span class="s2">                         raise ValueError(&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;)</span>
+<span class="ne">-&gt; </span><span class="mi">1071</span><span class="s2">                     self.do_handshake()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1072</span><span class="s2">             except (OSError, ValueError):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1073</span><span class="s2">                 self.close()</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">do_handshake</span><span class="nt">(self, block)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1340</span><span class="s2">             if timeout == 0.0 and block:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1341</span><span class="s2">                 self.settimeout(None)</span>
+<span class="ne">-&gt; </span><span class="mi">1342</span><span class="s2">             self._sslobj.do_handshake()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1343</span><span class="s2">         finally:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1344</span><span class="s2">             self.settimeout(timeout)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pencarian &amp; Penambangan Web</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Normalisasi%20Teks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alisa SUgiarti
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
