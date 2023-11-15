@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Read File &#8212; Pencarian dan Penambangan Web</title>
+    <title>Topik Modelling LDA &#8212; Pencarian dan Penambangan Web</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Topik Modelling LDA';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="Search%20Kalimat%20Penting%20Berita.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="Skip%20Gram.html" />
+    <link rel="next" title="Clustering" href="Clustering.html" />
+    <link rel="prev" title="Skip Gram" href="Skip%20Gram.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,11 +163,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Crowling%20Data%20PTA.html"><strong># Tugas 1 - Crowling Data</strong> (22/8/2023 - 29/8/2023)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Read File</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="Crowling%20Data%20PTA.html"><strong>Crowling Data</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Skip%20Gram.html"><strong>Skip Gram</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Topik Modelling LDA</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html"><strong>Clustering</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Search%20Kalimat%20Penting%20Berita.html"><strong>Search Kalimat Penting Dalam Berita</strong></a></li>
 </ul>
 
     </div>
@@ -382,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Read File</h1>
+    <h1>Topik Modelling LDA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,12 +392,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Read File</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-analisis-word-cloud">Eksplorasi analisis (Word Cloud)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-topik-dalam-dokumen">Proporsi Topik Dalam Dokumen</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-kata-dalam-topik">Proporsi Kata Dalam Topik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-file">Read File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-analisis-word-cloud">Eksplorasi analisis (Word Cloud)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-topik-dalam-dokumen">Proporsi Topik Dalam Dokumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-kata-dalam-topik">Proporsi Kata Dalam Topik</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -408,8 +407,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="read-file">
-<h1>Read File<a class="headerlink" href="#read-file" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="topik-modelling-lda">
+<h1><strong>Topik Modelling LDA</strong><a class="headerlink" href="#topik-modelling-lda" title="Permalink to this heading">#</a></h1>
+<section id="read-file">
+<h2>Read File<a class="headerlink" href="#read-file" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -477,8 +478,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-analisis-word-cloud">
-<h1>Eksplorasi analisis (Word Cloud)<a class="headerlink" href="#eksplorasi-analisis-word-cloud" title="Permalink to this heading">#</a></h1>
+<section id="eksplorasi-analisis-word-cloud">
+<h2>Eksplorasi analisis (Word Cloud)<a class="headerlink" href="#eksplorasi-analisis-word-cloud" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
@@ -498,8 +499,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="proporsi-topik-dalam-dokumen">
-<h1>Proporsi Topik Dalam Dokumen<a class="headerlink" href="#proporsi-topik-dalam-dokumen" title="Permalink to this heading">#</a></h1>
+<section id="proporsi-topik-dalam-dokumen">
+<h2>Proporsi Topik Dalam Dokumen<a class="headerlink" href="#proporsi-topik-dalam-dokumen" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -886,8 +887,8 @@ document.write(`
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="proporsi-kata-dalam-topik">
-<h1>Proporsi Kata Dalam Topik<a class="headerlink" href="#proporsi-kata-dalam-topik" title="Permalink to this heading">#</a></h1>
+<section id="proporsi-kata-dalam-topik">
+<h2>Proporsi Kata Dalam Topik<a class="headerlink" href="#proporsi-kata-dalam-topik" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan distribusi kata pada setiap topik</span>
@@ -1241,6 +1242,7 @@ document.write(`
 </div></div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1278,15 +1280,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title"><strong>Skip Gram</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="Search%20Kalimat%20Penting%20Berita.html"
+       href="Clustering.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title"><strong>Clustering</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1305,12 +1307,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Read File</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-analisis-word-cloud">Eksplorasi analisis (Word Cloud)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-topik-dalam-dokumen">Proporsi Topik Dalam Dokumen</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-kata-dalam-topik">Proporsi Kata Dalam Topik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-file">Read File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-analisis-word-cloud">Eksplorasi analisis (Word Cloud)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-topik-dalam-dokumen">Proporsi Topik Dalam Dokumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporsi-kata-dalam-topik">Proporsi Kata Dalam Topik</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
