@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Search Kalimat Penting Berita';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -374,7 +376,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -390,6 +394,30 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crowling-artikel-berita-dari-website"><strong>Crowling Artikel Berita dari Website</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-kalimat"><strong>Tokenisasi Kalimat</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf"><strong>TF-IDF</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-smilarity"><strong>Cosine Smilarity</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-kalimat-ke-dalam-bentuk-graph"><strong>Visualisasi Kalimat Ke dalam Bentuk Graph</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality"><strong>Closeness Centrality</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank"><strong>PageRank</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-4-kalimat-penting"><strong>Mencari 4 Kalimat Penting</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -401,6 +429,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="search-kalimat-penting-dalam-berita">
 <h1><strong>Search Kalimat Penting Dalam Berita</strong><a class="headerlink" href="#search-kalimat-penting-dalam-berita" title="Permalink to this heading">#</a></h1>
+<section id="crowling-artikel-berita-dari-website">
+<h2><strong>Crowling Artikel Berita dari Website</strong><a class="headerlink" href="#crowling-artikel-berita-dari-website" title="Permalink to this heading">#</a></h2>
+<p>Web crawling adalah proses otomatis untuk mengumpulkan informasi dari World Wide Web, di mana “crawler” atau “spider” (program komputer) secara sistematis menjelajahi halaman web, mengumpulkan data, dan menyimpannya untuk penggunaan lebih lanjut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -435,11 +466,30 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ketua Umum Partai Amanat Nasional (PAN) Zulkifli Hasan (Zulhas) berpesan soal persaingan yang terjadi pada Pemilu 2024. Zulhas mengingatkan meski ada perbedaan, semua pihak tetap saudara satu bangsa.Pesan itu disampaikannya dalam kegiatan &#39;Do&#39;a &amp; Sholawat Pemilu Damai&#39; bersama Habib Syech Bin Abdul Qodir Assegaf di Bumi Perkemahan Pramuka Cibubur.&quot;Kita berselawat dan berdoa agar pemilunya damai. Walaupun persaingannya ketat, tetapi kita saudara. Boleh beda, tapi kita saudara se-bangsa dan se-Tanah Air,&quot; ujar Zulhas, Senin (27/11/2023).ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Kita berselawat agar pemilunya damai dan lancar, demokratis. Yang terpilih yang diharapkan oleh rakyat,&quot; imbuhnya.Pada kesempatan itu, Zulhas juga mengajak jemaah yang hadir dalam acara itu untuk mendoakan warga Palestina agar meraih kemenangan dalam peperangannya melawan Israel.&quot;Kita doakan saudara-saudara kita yang ada di Palestina. Mudah-mudahan diberikan kekuatan, ketabahan, kesabaran, dan kemenangan,&quot; ucapnya.Selain itu, Zulhas menyebutkan kondisi Gaza terkini. Menurutnya, Indonesia telah ikut berperan dan memberi bantuan untuk Gaza.&quot;Alhamdulillah hari ini kita lihat di Palestina, walaupun pendek waktunya, tapi sudah ada gencatan senjata, sudah ada pertukaran tawanan. Banyak sedikit ada peran kita, peran Presiden Republik Indonesia selain memberi bantuan dan berdoa,&quot; tuturnya.Untuk itu, ia mengajak semua pihak termasuk Nahdlatul Ulama dan Muhammadiyah untuk segera mendoakan kedamaian pemilu di Indonesia dan warga Palestina.&quot;Semoga Allah memberikan kekuatan dan pertolongan dan keberkahan kepada kita semua,&quot; pungkasnya.Sekedar informasi, turut hadir dalam kegiatan itu TKN Prabowo-Gibran Nusron Wahid, DPW PAN DKI Eko Patrio, dan Ketua Umum DPP PAN Intan Fauzi.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-20d9d6227fcd&gt;</span> in <span class="ni">&lt;cell line: 27&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># Panggil fungsi untuk scraping satu artikel</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="n">data</span> <span class="o">=</span> <span class="n">scrape_detik</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-1-20d9d6227fcd&gt;</span> in <span class="ni">scrape_detik</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">sop_</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__body-text itp_bodycontent&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="ne">---&gt; </span><span class="mi">21</span>     <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">content_</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> 
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;find_all&#39;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="tokenisasi-kalimat">
+<h2><strong>Tokenisasi Kalimat</strong><a class="headerlink" href="#tokenisasi-kalimat" title="Permalink to this heading">#</a></h2>
+<p>Tokenisasi kalimat adalah proses memecah teks menjadi kalimat-kalimat individual. Tujuan dari tokenisasi kalimat adalah untuk memisahkan teks menjadi unit-unit yang lebih kecil, yaitu kalimat, sehingga memudahkan analisis dan pemrosesan lebih lanjut pada tingkat kalimat.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -447,7 +497,7 @@ document.write(`
 
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 
-<span class="c1"># Fungsi untuk menghapus tanda baca, tokenisasi, dan stemming per kata dalam setiap kalimat</span>
+<span class="c1"># Fungsi untuk tokenisasi kalimat</span>
 <span class="k">def</span> <span class="nf">tokenisasi_text</span><span class="p">(</span><span class="n">teks</span><span class="p">):</span>
     <span class="c1"># Tokenisasi kalimat</span>
     <span class="n">kalimat</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
@@ -459,15 +509,33 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;Wakil PresidenMa&#39;ruf Aminmengimbau kepada seluruh KBRI untuk menyelenggarakanPemilu 2024bagi WNI di luar negeri dengan jujur dan adil.&quot;, &quot;Ma&#39;ruf mengingatkan agar para petugas netral dalam melaksanakan pemilihan.&quot;, &#39;&quot;Saya kira nanti seperti apa persiapan Pemilu, tapi saya mengimbau di seluruh KBRI di luar negeri supaya menyelenggarakan Pemilu dengan baik dan supaya ada netralitas dari pihak kedutaan besar kita supaya Pemilu berjalan dengan jurdil,&quot; kata Ma\&#39;ruf di Bratislava, Slovakia, Sabtu (25/11/2023).Ma\&#39;ruf berharap Pemilu berjalan bersih sehingga kualitas demokrasi di Indonesia lebih baik.&#39;, &#39;Dia mengingatkan jangan sampai ada tekanan.ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Itu dengan jujur dan adil, dengan bersih dan tidak ada tekanan dari mana-mana, supaya berjalan sesuai dengan kita harapkan supaya kualitas demokrasi kita menjadi lebih baik,&quot; tutur Ma\&#39;ruf.Ma\&#39;ruf menyampaikan pilihan setiap warga negara Indonesia harua dihormati.&#39;, &#39;Dia tidak ingin pesan netralitas hanya sebata slogan.&#39;, &#39;&quot;Ya saya kira terutama para petugas kita supaya apapun pilihannya tentu supaya tetap berusaha untuk menjaga netralitasnya, artinya jangan sampai ada pesanan, ada tekanan, gitu kan. Oleh karena itu saya kira Pak Dubes supaya sekali lagi menekankan kepada petugas kita untuk menjaga netralitas petugas kita di sini,&quot; imbuh Ma\&#39;ruf.&#39;, &#39;&quot;Ya bukan slogan, betul-betul dijalankan denga baik,&quot; kata Ma\&#39;ruf menjawab soal jangan sampai netralitas hanya sebagai slogan.Sementara itu, Duta Besar RI di Bratislava Pribadi Sutiono, menjelaskan pihaknua sudah mempunyai PPLN untuk menyelenggarakan Pemilu 2024.&#39;, &#39;Saat ini tercatat ada 330 orang WNI yang masuk DPT.&#39;, &#39;&quot;Di mana nanti kira akan melakukan dua cara pemilihan yaitu dengan pos dan dengan TPS,&quot; kata Pribadi Sutiono.Sutiono menjelaskan Pemilu di Slovakia akan dimulai pada 10 Februari 2024.&#39;, &#39;Pemilu akan dimulai pada pukul 10.00 hingga 18.00 WIB.&#39;, &#39;&quot;Lebih awal karena supaya sampai di Jakarta nya tanggal 14 sudah selesai,&quot; ujar Sutiono.Selain itu, Sutiono mengatakan kebanyakan masyarakat Indonesia di Slovakia berada di Bratislava.&#39;, &#39;Dia juga menyampaiman 100 persen PPPN merupakan perempuan.&#39;, &#39;&quot;Jadi Alhamdulillah cukup berbangga di sini karena semuanya perempuan, itu juga menjadi persiapan kami.&#39;, &#39;Insyaallah akan berjalan dengan jujur dan adil sesuai yang disampaikan Pak Wapres tadi,&quot; kata dia.&#39;]
+</pre></div>
+</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ketua Umum Partai Amanat Nasional (PAN) Zulkifli Hasan (Zulhas) berpesan soal persaingan yang terjadi pada Pemilu 2024.&#39;, &quot;Zulhas mengingatkan meski ada perbedaan, semua pihak tetap saudara satu bangsa.Pesan itu disampaikannya dalam kegiatan &#39;Do&#39;a &amp; Sholawat Pemilu Damai&#39; bersama Habib Syech Bin Abdul Qodir Assegaf di Bumi Perkemahan Pramuka Cibubur.&quot;, &#39;&quot;Kita berselawat dan berdoa agar pemilunya damai.&#39;, &#39;Walaupun persaingannya ketat, tetapi kita saudara.&#39;, &#39;Boleh beda, tapi kita saudara se-bangsa dan se-Tanah Air,&quot; ujar Zulhas, Senin (27/11/2023).ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Kita berselawat agar pemilunya damai dan lancar, demokratis.&#39;, &#39;Yang terpilih yang diharapkan oleh rakyat,&quot; imbuhnya.Pada kesempatan itu, Zulhas juga mengajak jemaah yang hadir dalam acara itu untuk mendoakan warga Palestina agar meraih kemenangan dalam peperangannya melawan Israel.&#39;, &#39;&quot;Kita doakan saudara-saudara kita yang ada di Palestina.&#39;, &#39;Mudah-mudahan diberikan kekuatan, ketabahan, kesabaran, dan kemenangan,&quot; ucapnya.Selain itu, Zulhas menyebutkan kondisi Gaza terkini.&#39;, &#39;Menurutnya, Indonesia telah ikut berperan dan memberi bantuan untuk Gaza.&#39;, &#39;&quot;Alhamdulillah hari ini kita lihat di Palestina, walaupun pendek waktunya, tapi sudah ada gencatan senjata, sudah ada pertukaran tawanan.&#39;, &#39;Banyak sedikit ada peran kita, peran Presiden Republik Indonesia selain memberi bantuan dan berdoa,&quot; tuturnya.Untuk itu, ia mengajak semua pihak termasuk Nahdlatul Ulama dan Muhammadiyah untuk segera mendoakan kedamaian pemilu di Indonesia dan warga Palestina.&#39;, &#39;&quot;Semoga Allah memberikan kekuatan dan pertolongan dan keberkahan kepada kita semua,&quot; pungkasnya.Sekedar informasi, turut hadir dalam kegiatan itu TKN Prabowo-Gibran Nusron Wahid, DPW PAN DKI Eko Patrio, dan Ketua Umum DPP PAN Intan Fauzi.&#39;]
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="tf-idf">
+<h2><strong>TF-IDF</strong><a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
+<p>TF-IDF “Term Frequency-Inverse Document Frequency” adalah teknik yang digunakan dalam pemrosesan bahasa alami dan pengelolaan informasi untuk mengevaluasi seberapa penting sebuah kata dalam suatu dokumen relatif terhadap kumpulan dokumen yang lebih besar. TF-IDF memberikan bobot numerik untuk setiap kata dalam dokumen, mencerminkan seberapa sering kata tersebut muncul dalam dokumen tersebut dan seberapa uniknya di antara seluruh kumpulan dokumen.</p>
+<section id="rumus">
+<h3><strong>Rumus</strong><a class="headerlink" href="#rumus" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+W1= tf1 * log \frac{D}{df1}
+\]</div>
+<p>KETERANGAN:</p>
+<ul class="simple">
+<li><p>W1​ adalah bobot dari term (kata atau token) pertama dalam dokumen.</p></li>
+<li><p>tf1 adalah frekuensi kemunculan term pertama dalam dokumen (Term Frequency).</p></li>
+<li><p>df1 adalah jumlah dokumen yang berisi term pertama (Document Frequency).</p></li>
+<li><p>D adalah total jumlah dokumen dalam korpus atau koleksi dokumen yang sedang diproses.</p></li>
+<li><p>log⁡ adalah fungsi logaritma yang umumnya menggunakan basis 10 atau basis lainnya tergantung pada implementasi yang digunakan</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -514,7 +582,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-baadd7a3-69aa-4321-92c3-c60db9dec226" class="colab-df-container">
+  <div id="df-d0c3c42f-d3e8-41cb-8cc1-56f461f7467e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -533,42 +601,42 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Ketua</th>
-      <th>Umum</th>
-      <th>Partai</th>
-      <th>Amanat</th>
-      <th>Nasional</th>
-      <th>(PAN)</th>
-      <th>Zulkifli</th>
-      <th>Hasan</th>
-      <th>(Zulhas)</th>
-      <th>berpesan</th>
+      <th>Wakil</th>
+      <th>PresidenMa'ruf</th>
+      <th>Aminmengimbau</th>
+      <th>kepada</th>
+      <th>seluruh</th>
+      <th>KBRI</th>
+      <th>untuk</th>
+      <th>menyelenggarakanPemilu</th>
+      <th>2024bagi</th>
+      <th>WNI</th>
       <th>...</th>
-      <th>Nusron</th>
-      <th>Wahid,</th>
-      <th>DPW</th>
-      <th>PAN</th>
-      <th>DKI</th>
-      <th>Eko</th>
-      <th>Patrio,</th>
-      <th>DPP</th>
-      <th>Intan</th>
-      <th>Fauzi.</th>
+      <th>sini</th>
+      <th>semuanya</th>
+      <th>perempuan,</th>
+      <th>kami.</th>
+      <th>Insyaallah</th>
+      <th>adil</th>
+      <th>disampaikan</th>
+      <th>Wapres</th>
+      <th>tadi,"</th>
+      <th>dia.</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.105398</td>
-      <td>0.105398</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
-      <td>0.146171</td>
+      <td>0.155239</td>
+      <td>0.155239</td>
+      <td>0.155239</td>
+      <td>0.114465</td>
+      <td>0.114465</td>
+      <td>0.114465</td>
+      <td>0.090614</td>
+      <td>0.155239</td>
+      <td>0.155239</td>
+      <td>0.114465</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -611,8 +679,8 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.044225</td>
+      <td>0.044225</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -682,10 +750,10 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.051208</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.081076</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -709,7 +777,7 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.045307</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -736,7 +804,7 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.194591</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -823,8 +891,8 @@ document.write(`
     </tr>
     <tr>
       <th>11</th>
-      <td>0.057799</td>
-      <td>0.057799</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -834,33 +902,81 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.160317</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
-      <td>0.080158</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.188504</td>
+      <td>0.188504</td>
+      <td>0.188504</td>
+      <td>0.188504</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.175937</td>
+      <td>0.175937</td>
+      <td>0.175937</td>
+      <td>0.175937</td>
+      <td>0.175937</td>
+      <td>0.175937</td>
     </tr>
   </tbody>
 </table>
-<p>12 rows × 175 columns</p>
+<p>14 rows × 204 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-baadd7a3-69aa-4321-92c3-c60db9dec226')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d0c3c42f-d3e8-41cb-8cc1-56f461f7467e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -904,12 +1020,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-baadd7a3-69aa-4321-92c3-c60db9dec226 button.colab-df-convert');
+        document.querySelector('#df-d0c3c42f-d3e8-41cb-8cc1-56f461f7467e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-baadd7a3-69aa-4321-92c3-c60db9dec226');
+        const element = document.querySelector('#df-d0c3c42f-d3e8-41cb-8cc1-56f461f7467e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -927,11 +1043,157 @@ document.write(`
       }
     </script>
   </div>
-  
+
+
+<div id="df-b94a2806-bf92-4f07-bcd6-3684ad299ab1">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b94a2806-bf92-4f07-bcd6-3684ad299ab1')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-b94a2806-bf92-4f07-bcd6-3684ad299ab1 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
+</section>
+</section>
+<section id="cosine-smilarity">
+<h2><strong>Cosine Smilarity</strong><a class="headerlink" href="#cosine-smilarity" title="Permalink to this heading">#</a></h2>
+<p>Cosine similarity adalah metode pengukuran kesamaan antara dua vektor non-nol dalam ruang vektor, terutama sering digunakan dalam konteks pemrosesan bahasa alami dan analisis teks. Metode ini membandingkan sudut antara dua vektor untuk menentukan sejauh mana vektor-vektor tersebut mirip satu sama lain.</p>
+<section id="id1">
+<h3><strong>Rumus</strong><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+sim(Q, Di) = \frac{{\sum_{i}WQ,jWi,j}}{{\sum_{j}W^2Q,j} {\sum_{i}W^2 i,j}}
+\]</div>
+<p>KETERANGAN:</p>
+<ul class="simple">
+<li><p>Q adalah vektor representasi dari query (pertanyaan atau pencarian) yang ingin dicocokkan dengan dokumen.</p></li>
+<li><p>Di adalah vektor representasi dari dokumen ke-i yang ada dalam koleksi.</p></li>
+<li><p>∑i​WQ,j​Wi,j​ adalah hasil dari perkalian titik antara vektor query QQ dan vektor dokumen Di</p></li>
+<li><p>∑j​WQ,j2​ adalah penjumlahan kuadrat dari setiap elemen dalam vektor query Q</p></li>
+<li><p>∑i​Wi,j2​ adalah penjumlahan kuadrat dari setiap elemen dalam vektor dokumen DiDi</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -962,7 +1224,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f4192360-f9df-4b91-bd35-6e99aca6ccc4" class="colab-df-container">
+  <div id="df-a25c8b2f-c219-4a5d-8e6d-4e8607afa3d1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -993,204 +1255,264 @@ document.write(`
       <th>Kalimat 10</th>
       <th>Kalimat 11</th>
       <th>Kalimat 12</th>
+      <th>Kalimat 13</th>
+      <th>Kalimat 14</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Kalimat 1</th>
       <td>1.000000</td>
-      <td>0.026480</td>
       <td>0.000000</td>
+      <td>0.154347</td>
+      <td>0.062101</td>
       <td>0.000000</td>
+      <td>0.060941</td>
+      <td>0.026099</td>
+      <td>0.058708</td>
+      <td>0.037752</td>
       <td>0.000000</td>
-      <td>0.034316</td>
-      <td>0.041047</td>
+      <td>0.015027</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.049624</td>
+      <td>0.006602</td>
+      <td>0.066281</td>
     </tr>
     <tr>
       <th>Kalimat 2</th>
-      <td>0.026480</td>
+      <td>0.000000</td>
       <td>1.000000</td>
+      <td>0.022004</td>
+      <td>0.037278</td>
+      <td>0.000000</td>
+      <td>0.124581</td>
+      <td>0.026403</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.023534</td>
-      <td>0.051981</td>
-      <td>0.039049</td>
-      <td>0.017871</td>
       <td>0.000000</td>
-      <td>0.027436</td>
-      <td>0.053150</td>
-      <td>0.041291</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 3</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.154347</td>
+      <td>0.022004</td>
       <td>1.000000</td>
+      <td>0.229760</td>
+      <td>0.016161</td>
+      <td>0.148848</td>
+      <td>0.079797</td>
+      <td>0.013327</td>
+      <td>0.111043</td>
+      <td>0.044691</td>
+      <td>0.073359</td>
       <td>0.000000</td>
-      <td>0.174748</td>
-      <td>0.033297</td>
-      <td>0.133066</td>
-      <td>0.011447</td>
-      <td>0.014854</td>
-      <td>0.000000</td>
-      <td>0.022218</td>
-      <td>0.021618</td>
+      <td>0.042960</td>
+      <td>0.076722</td>
     </tr>
     <tr>
       <th>Kalimat 4</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.062101</td>
+      <td>0.037278</td>
+      <td>0.229760</td>
       <td>1.000000</td>
-      <td>0.012638</td>
+      <td>0.067340</td>
+      <td>0.133188</td>
+      <td>0.041109</td>
+      <td>0.028299</td>
+      <td>0.050858</td>
       <td>0.000000</td>
-      <td>0.027888</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.013063</td>
-      <td>0.000000</td>
-      <td>0.010091</td>
+      <td>0.042931</td>
+      <td>0.023509</td>
+      <td>0.030255</td>
+      <td>0.118661</td>
     </tr>
     <tr>
       <th>Kalimat 5</th>
       <td>0.000000</td>
-      <td>0.023534</td>
-      <td>0.174748</td>
-      <td>0.012638</td>
+      <td>0.000000</td>
+      <td>0.016161</td>
+      <td>0.067340</td>
       <td>1.000000</td>
-      <td>0.015250</td>
-      <td>0.014549</td>
-      <td>0.010485</td>
-      <td>0.013606</td>
-      <td>0.035360</td>
-      <td>0.020351</td>
-      <td>0.025066</td>
+      <td>0.014335</td>
+      <td>0.066178</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.054614</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 6</th>
-      <td>0.034316</td>
-      <td>0.051981</td>
-      <td>0.033297</td>
-      <td>0.000000</td>
-      <td>0.015250</td>
+      <td>0.060941</td>
+      <td>0.124581</td>
+      <td>0.148848</td>
+      <td>0.133188</td>
+      <td>0.014335</td>
       <td>1.000000</td>
-      <td>0.067303</td>
-      <td>0.038688</td>
-      <td>0.025101</td>
+      <td>0.064544</td>
+      <td>0.023644</td>
+      <td>0.026185</td>
       <td>0.000000</td>
-      <td>0.087749</td>
-      <td>0.056872</td>
+      <td>0.051118</td>
+      <td>0.000000</td>
+      <td>0.044325</td>
+      <td>0.027138</td>
     </tr>
     <tr>
       <th>Kalimat 7</th>
-      <td>0.041047</td>
-      <td>0.039049</td>
-      <td>0.133066</td>
-      <td>0.027888</td>
-      <td>0.014549</td>
-      <td>0.067303</td>
+      <td>0.026099</td>
+      <td>0.026403</td>
+      <td>0.079797</td>
+      <td>0.041109</td>
+      <td>0.066178</td>
+      <td>0.064544</td>
       <td>1.000000</td>
       <td>0.000000</td>
+      <td>0.101520</td>
+      <td>0.017875</td>
+      <td>0.072520</td>
       <td>0.000000</td>
-      <td>0.086083</td>
-      <td>0.087619</td>
-      <td>0.011618</td>
+      <td>0.004339</td>
+      <td>0.015215</td>
     </tr>
     <tr>
       <th>Kalimat 8</th>
+      <td>0.058708</td>
       <td>0.000000</td>
-      <td>0.017871</td>
-      <td>0.011447</td>
+      <td>0.013327</td>
+      <td>0.028299</td>
       <td>0.000000</td>
-      <td>0.010485</td>
-      <td>0.038688</td>
+      <td>0.023644</td>
       <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.008629</td>
       <td>0.000000</td>
-      <td>0.030117</td>
-      <td>0.012559</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.062228</td>
     </tr>
     <tr>
       <th>Kalimat 9</th>
+      <td>0.037752</td>
       <td>0.000000</td>
+      <td>0.111043</td>
+      <td>0.050858</td>
       <td>0.000000</td>
-      <td>0.014854</td>
+      <td>0.026185</td>
+      <td>0.101520</td>
       <td>0.000000</td>
-      <td>0.013606</td>
-      <td>0.025101</td>
-      <td>0.000000</td>
-      <td>0.008629</td>
       <td>1.000000</td>
+      <td>0.178349</td>
+      <td>0.040387</td>
       <td>0.000000</td>
-      <td>0.188302</td>
-      <td>0.016296</td>
+      <td>0.004892</td>
+      <td>0.103794</td>
     </tr>
     <tr>
       <th>Kalimat 10</th>
       <td>0.000000</td>
-      <td>0.027436</td>
       <td>0.000000</td>
-      <td>0.013063</td>
-      <td>0.035360</td>
-      <td>0.000000</td>
-      <td>0.086083</td>
+      <td>0.044691</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.017875</td>
+      <td>0.000000</td>
+      <td>0.178349</td>
       <td>1.000000</td>
-      <td>0.026422</td>
-      <td>0.005442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.043589</td>
     </tr>
     <tr>
       <th>Kalimat 11</th>
+      <td>0.015027</td>
       <td>0.000000</td>
-      <td>0.053150</td>
-      <td>0.022218</td>
+      <td>0.073359</td>
+      <td>0.042931</td>
       <td>0.000000</td>
-      <td>0.020351</td>
-      <td>0.087749</td>
-      <td>0.087619</td>
-      <td>0.030117</td>
-      <td>0.188302</td>
-      <td>0.026422</td>
+      <td>0.051118</td>
+      <td>0.072520</td>
+      <td>0.000000</td>
+      <td>0.040387</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.024376</td>
+      <td>0.000000</td>
+      <td>0.039261</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 12</th>
-      <td>0.049624</td>
-      <td>0.041291</td>
-      <td>0.021618</td>
-      <td>0.010091</td>
-      <td>0.025066</td>
-      <td>0.056872</td>
-      <td>0.011618</td>
-      <td>0.012559</td>
-      <td>0.016296</td>
-      <td>0.005442</td>
-      <td>0.024376</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.023509</td>
+      <td>0.054614</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.063691</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Kalimat 13</th>
+      <td>0.006602</td>
+      <td>0.000000</td>
+      <td>0.042960</td>
+      <td>0.030255</td>
+      <td>0.000000</td>
+      <td>0.044325</td>
+      <td>0.004339</td>
+      <td>0.000000</td>
+      <td>0.004892</td>
+      <td>0.000000</td>
+      <td>0.039261</td>
+      <td>0.063691</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Kalimat 14</th>
+      <td>0.066281</td>
+      <td>0.000000</td>
+      <td>0.076722</td>
+      <td>0.118661</td>
+      <td>0.000000</td>
+      <td>0.027138</td>
+      <td>0.015215</td>
+      <td>0.062228</td>
+      <td>0.103794</td>
+      <td>0.043589</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>1.000000</td>
     </tr>
   </tbody>
 </table>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f4192360-f9df-4b91-bd35-6e99aca6ccc4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a25c8b2f-c219-4a5d-8e6d-4e8607afa3d1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1234,12 +1556,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f4192360-f9df-4b91-bd35-6e99aca6ccc4 button.colab-df-convert');
+        document.querySelector('#df-a25c8b2f-c219-4a5d-8e6d-4e8607afa3d1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f4192360-f9df-4b91-bd35-6e99aca6ccc4');
+        const element = document.querySelector('#df-a25c8b2f-c219-4a5d-8e6d-4e8607afa3d1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1257,11 +1579,143 @@ document.write(`
       }
     </script>
   </div>
-  
+
+
+<div id="df-28cfcfc5-cad4-47f8-b138-e43aa8312513">
+  <button class="colab-df-quickchart" onclick="quickchart('df-28cfcfc5-cad4-47f8-b138-e43aa8312513')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-28cfcfc5-cad4-47f8-b138-e43aa8312513 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
+</section>
+</section>
+<section id="visualisasi-kalimat-ke-dalam-bentuk-graph">
+<h2><strong>Visualisasi Kalimat Ke dalam Bentuk Graph</strong><a class="headerlink" href="#visualisasi-kalimat-ke-dalam-bentuk-graph" title="Permalink to this heading">#</a></h2>
+<p>Graph adalah struktur data yang terdiri dari simpul-simpul (node) dan sisi-sisi (edge) yang menghubungkan simpul-simpul tersebut. Graf digunakan untuk memodelkan berbagai konsep, termasuk jaringan komputer, relasi antar entitas, dan banyak lagi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -1295,7 +1749,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/687d4abbce01070fe67364587e558ab888d10e2b7e92f5e0a8b3c9a1103def2d.png" src="_images/687d4abbce01070fe67364587e558ab888d10e2b7e92f5e0a8b3c9a1103def2d.png" />
+<img alt="_images/6c49e01a7549e147c6bfdce2075335d24cf12db12b49b50781583c904fc4b368.png" src="_images/6c49e01a7549e147c6bfdce2075335d24cf12db12b49b50781583c904fc4b368.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1344,7 +1798,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7959b113325e4d276af241e2748f19a968289d28ee4b6145611097a0e4a1779d.png" src="_images/7959b113325e4d276af241e2748f19a968289d28ee4b6145611097a0e4a1779d.png" />
+<img alt="_images/04475638ce2f8d4a05a72e4cd817f6de56d89eec5fce752fed00acbddbe3d319.png" src="_images/04475638ce2f8d4a05a72e4cd817f6de56d89eec5fce752fed00acbddbe3d319.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1397,7 +1851,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ca14955284fabe38b91f8ba54425f7f69fa13cbe33dddee3d2800c8b029f5d44.png" src="_images/ca14955284fabe38b91f8ba54425f7f69fa13cbe33dddee3d2800c8b029f5d44.png" />
+<img alt="_images/569aaf4104fa082d0bc66f8c9251342cf1bef1b38bfc424197c2a78ab6999a0d.png" src="_images/569aaf4104fa082d0bc66f8c9251342cf1bef1b38bfc424197c2a78ab6999a0d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1454,9 +1908,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fa043267b3ef81943e0e02bc6ea3db1c45f3355f6c16b28e40af21b29bc6c4b.png" src="_images/8fa043267b3ef81943e0e02bc6ea3db1c45f3355f6c16b28e40af21b29bc6c4b.png" />
+<img alt="_images/a6f3b3abe629c43bcd4cf6626503c1d5e48cb2ee8320980b716fa0fee3e70ef6.png" src="_images/a6f3b3abe629c43bcd4cf6626503c1d5e48cb2ee8320980b716fa0fee3e70ef6.png" />
 </div>
 </div>
+</section>
+<section id="closeness-centrality">
+<h2><strong>Closeness Centrality</strong><a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h2>
+<p>Closeness centrality adalah sebuah metrik dalam analisis jaringan yang mengukur sejauh mana suatu simpul (node) dalam jaringan mendekati simpul-simpul lainnya. Simpul dengan closeness centrality yang tinggi dianggap lebih dekat atau lebih “sentral” dalam arti jarak atau aksesibilitas dalam jaringan.</p>
+<p>Metrik closeness centrality dihitung berdasarkan reciprok dari total jarak dari suatu simpul ke semua simpul lainnya dalam jaringan. Semakin kecil total jarak, semakin besar nilai closeness centrality. Ini berarti simpul yang lebih dekat dengan simpul-simpul lainnya memiliki nilai closeness centrality yang lebih tinggi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality dari graph</span>
@@ -1484,33 +1943,54 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Centrality:
-Node 0: 0.0
-Node 1: 0.0
-Node 2: 0.29752066115702475
-Node 3: 0.0
-Node 4: 0.20454545454545453
-Node 5: 0.29752066115702475
-Node 6: 0.40909090909090906
-Node 7: 0.0
-Node 8: 0.21818181818181817
-Node 9: 0.2517482517482517
-Node 10: 0.3272727272727272
-Node 11: 0.0
+Node 0: 0.4898785425101215
+Node 1: 0.3209549071618037
+Node 2: 0.6205128205128204
+Node 3: 0.5170940170940171
+Node 4: 0.40468227424749165
+Node 5: 0.4898785425101215
+Node 6: 0.5170940170940171
+Node 7: 0.3324175824175824
+Node 8: 0.4898785425101215
+Node 9: 0.3209549071618037
+Node 10: 0.40468227424749165
+Node 11: 0.07692307692307693
+Node 12: 0.07692307692307693
+Node 13: 0.5170940170940171
 =============================
 Top 4 sentences based on closeness centrality:
-&quot;Kita doakan saudara-saudara kita yang ada di Palestina.
-Banyak sedikit ada peran kita, peran Presiden Republik Indonesia selain memberi bantuan dan berdoa,&quot; tuturnya.Untuk itu, ia mengajak semua pihak termasuk Nahdlatul Ulama dan Muhammadiyah untuk segera mendoakan kedamaian pemilu di Indonesia dan warga Palestina.
-&quot;Kita berselawat dan berdoa agar pemilunya damai.
-Yang terpilih yang diharapkan oleh rakyat,&quot; imbuhnya.Pada kesempatan itu, Zulhas juga mengajak jemaah yang hadir dalam acara itu untuk mendoakan warga Palestina agar meraih kemenangan dalam peperangannya melawan Israel.
+&quot;Saya kira nanti seperti apa persiapan Pemilu, tapi saya mengimbau di seluruh KBRI di luar negeri supaya menyelenggarakan Pemilu dengan baik dan supaya ada netralitas dari pihak kedutaan besar kita supaya Pemilu berjalan dengan jurdil,&quot; kata Ma&#39;ruf di Bratislava, Slovakia, Sabtu (25/11/2023).Ma&#39;ruf berharap Pemilu berjalan bersih sehingga kualitas demokrasi di Indonesia lebih baik.
+Dia mengingatkan jangan sampai ada tekanan.ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Itu dengan jujur dan adil, dengan bersih dan tidak ada tekanan dari mana-mana, supaya berjalan sesuai dengan kita harapkan supaya kualitas demokrasi kita menjadi lebih baik,&quot; tutur Ma&#39;ruf.Ma&#39;ruf menyampaikan pilihan setiap warga negara Indonesia harua dihormati.
+&quot;Ya bukan slogan, betul-betul dijalankan denga baik,&quot; kata Ma&#39;ruf menjawab soal jangan sampai netralitas hanya sebagai slogan.Sementara itu, Duta Besar RI di Bratislava Pribadi Sutiono, menjelaskan pihaknua sudah mempunyai PPLN untuk menyelenggarakan Pemilu 2024.
+Insyaallah akan berjalan dengan jujur dan adil sesuai yang disampaikan Pak Wapres tadi,&quot; kata dia.
 =============================
 Top 3 node based on closeness centrality:
-Node 6 dengan PageRank 0.4091
-Node 10 dengan PageRank 0.3273
-Node 2 dengan PageRank 0.2975
+Node 2 dengan PageRank 0.6205
+Node 3 dengan PageRank 0.5171
+Node 6 dengan PageRank 0.5171
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="pagerank">
+<h2><strong>PageRank</strong><a class="headerlink" href="#pagerank" title="Permalink to this heading">#</a></h2>
+<p>PageRank adalah algoritma yang digunakan oleh mesin pencari Google untuk memberikan peringkat pada halaman-halaman web dalam hasil pencarian. Algoritma ini dikembangkan oleh Larry Page dan Sergey Brin, pendiri Google, dan dinamai dari nama Larry Page.</p>
+<p>Tujuan utama PageRank adalah mengukur seberapa penting atau otoritatif sebuah halaman web dengan mempertimbangkan struktur tautan antar halaman-halaman tersebut. Ide dasar di balik PageRank adalah bahwa halaman web yang banyak dihubungkan oleh halaman-halaman lain memiliki tingkat otoritas yang lebih tinggi.</p>
+<section id="id2">
+<h3><strong>Rumus</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+PR(u) = (1-d) . \frac{1}{N} + d . \sum_{v∈Bu} \frac{PR(v)}{L(v)}
+\]</div>
+<p>KETERANGAN:</p>
+<ul class="simple">
+<li><p>( PR(u) ) adalah PageRank dari halaman ( u ).</p></li>
+<li><p>( d ) adalah damping factor, biasanya diatur sebagai 0.85.</p></li>
+<li><p>( N ) adalah jumlah total halaman dalam graf (jumlah node dalam graf).</p></li>
+<li><p>( B_u ) adalah himpunan halaman yang memiliki tautan ke halaman ( u ).</p></li>
+<li><p>( L(v) ) adalah jumlah tautan keluar dari halaman ( v ).”</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung PageRank</span>
@@ -1540,30 +2020,32 @@ Node 2 dengan PageRank 0.2975
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PageRank:
-Kalimat 1: 0.019354838710021156
-Kalimat 2: 0.019354838710021156
-Kalimat 3: 0.16037508429598865
-Kalimat 4: 0.019354838710021156
-Kalimat 5: 0.09660293984408191
-Kalimat 6: 0.09046920384614772
-Kalimat 7: 0.20258210437976898
-Kalimat 8: 0.019354838710021156
-Kalimat 9: 0.10252073067221748
-Kalimat 10: 0.060137689757688365
-Kalimat 11: 0.1905380536540011
-Kalimat 12: 0.019354838710021156
+Kalimat 1: 0.0649633325505032
+Kalimat 2: 0.030322523813109743
+Kalimat 3: 0.15632523925171132
+Kalimat 4: 0.11209509346460973
+Kalimat 5: 0.03391674013690197
+Kalimat 6: 0.0999647147558687
+Kalimat 7: 0.07835327009974778
+Kalimat 8: 0.021140038155221613
+Kalimat 9: 0.09736561932887028
+Kalimat 10: 0.04111716259548319
+Kalimat 11: 0.0336738232229541
+Kalimat 12: 0.07142857142857142
+Kalimat 13: 0.07142857142857142
+Kalimat 14: 0.0879052997678754
 =============================
 Top 4 sentences based on PageRank:
-Mudah-mudahan diberikan kekuatan, ketabahan, kesabaran, dan kemenangan,&quot; ucapnya.Selain itu, Zulhas menyebutkan kondisi Gaza terkini.
-&quot;Semoga Allah memberikan kekuatan dan pertolongan dan keberkahan kepada kita semua,&quot; pungkasnya.Sekedar informasi, turut hadir dalam kegiatan itu TKN Prabowo-Gibran Nusron Wahid, DPW PAN DKI Eko Patrio, dan Ketua Umum DPP PAN Intan Fauzi.
-Walaupun persaingannya ketat, tetapi kita saudara.
-&quot;Alhamdulillah hari ini kita lihat di Palestina, walaupun pendek waktunya, tapi sudah ada gencatan senjata, sudah ada pertukaran tawanan.
+Dia mengingatkan jangan sampai ada tekanan.ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Itu dengan jujur dan adil, dengan bersih dan tidak ada tekanan dari mana-mana, supaya berjalan sesuai dengan kita harapkan supaya kualitas demokrasi kita menjadi lebih baik,&quot; tutur Ma&#39;ruf.Ma&#39;ruf menyampaikan pilihan setiap warga negara Indonesia harua dihormati.
+Dia tidak ingin pesan netralitas hanya sebata slogan.
+&quot;Ya bukan slogan, betul-betul dijalankan denga baik,&quot; kata Ma&#39;ruf menjawab soal jangan sampai netralitas hanya sebagai slogan.Sementara itu, Duta Besar RI di Bratislava Pribadi Sutiono, menjelaskan pihaknua sudah mempunyai PPLN untuk menyelenggarakan Pemilu 2024.
+Pemilu akan dimulai pada pukul 10.00 hingga 18.00 WIB.
 =============================
 Top 4 kalimat based on PageRank:
-Kalimat 7 dengan PageRank 0.2026
-Kalimat 11 dengan PageRank 0.1905
-Kalimat 3 dengan PageRank 0.1604
-Kalimat 9 dengan PageRank 0.1025
+Kalimat 3 dengan PageRank 0.1563
+Kalimat 4 dengan PageRank 0.1121
+Kalimat 6 dengan PageRank 0.1000
+Kalimat 9 dengan PageRank 0.0974
 </pre></div>
 </div>
 </div>
@@ -1612,168 +2094,198 @@ Kalimat 9 dengan PageRank 0.1025
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi 1:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.17857142857142855) = 0.1732142857142857
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07142857142857142) = 0.08214285714285714
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.3333333333333333) = 0.30476190476190473
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.08333333333333333) = 0.09226190476190477
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.25) = 0.23392857142857143
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.03571428571428571) = 0.05178571428571428
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.047619047619047616) = 0.06190476190476191
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.053061224489795916) = 0.05581632653061225
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.12857142857142856) = 0.12
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.0923469387755102) = 0.08920918367346939
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.1280612244897959) = 0.11956632653061224
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.13163265306122449) = 0.12260204081632653
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.014285714285714285) = 0.02285714285714286
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.11377551020408162) = 0.1074234693877551
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.11020408163265306) = 0.10438775510204082
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.024489795918367346) = 0.03153061224489796
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.02857142857142857) = 0.035
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.014285714285714285) = 0.02285714285714286
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.017857142857142856) = 0.02589285714285714
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 2:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.15833333333333333) = 0.15601190476190477
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.08660714285714285) = 0.09504464285714286
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2625) = 0.24455357142857143
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.15416666666666667) = 0.1524702380952381
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.1842261904761905) = 0.17802083333333335
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.07619047619047618) = 0.08619047619047619
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.07797619047619048) = 0.08770833333333333
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.08341836734693878) = 0.08161989795918367
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.1435765306122449) = 0.13275433673469386
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09703061224489795) = 0.09319030612244897
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.09328061224489796) = 0.09000280612244899
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.09789285714285714) = 0.09392321428571429
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.023913265306122446) = 0.031040561224489796
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.10041836734693876) = 0.09606989795918366
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.0890408163265306) = 0.08639897959183673
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.038627551020408164) = 0.04354770408163266
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.0393265306122449) = 0.04414183673469388
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.024520408163265305) = 0.031556632653061224
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.026096938775510205) = 0.03289668367346939
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 3:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.1561830357142857) = 0.1541841517857143
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07800595238095238) = 0.08773363095238096
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2997718253968254) = 0.276234623015873
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.12047867063492064) = 0.12383544146825398
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.22508184523809524) = 0.2127481398809524
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.061138392857142856) = 0.07339620535714286
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.05934027777777778) = 0.07186780753968254
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07438817055393586) = 0.0739442306851312
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.1384158163265306) = 0.12836772959183673
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09822600218658893) = 0.09420638757288631
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10826248177842565) = 0.10273739522594752
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.11116431851311953) = 0.10520395645043731
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.018000561224489797) = 0.02601476275510204
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.10240998177842567) = 0.09776277022594754
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08986021137026239) = 0.08709546537900874
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.03817888483965014) = 0.04316633782798834
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.037852040816326524) = 0.04288852040816326
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.018784642857142857) = 0.026681232142857142
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021599744897959183) = 0.02907406887755102
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 4:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.1567922867063492) = 0.15470201512896825
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07709207589285715) = 0.0869568359375
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.28332204861111115) = 0.2622523127480159
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.1399747023809524) = 0.14040706845238096
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.20284418402777776) = 0.19384612785218253
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06905865575396825) = 0.08012842881944444
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.07091604662698413) = 0.08170721106150794
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07876779493440234) = 0.0776669114085277
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14182519482507291) = 0.13126570131559767
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09985683529518949) = 0.09559259571519678
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10123289907069971) = 0.09676224992438047
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.10412068075801749) = 0.09921686435860058
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.020547479045189505) = 0.028179642902696797
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.1036870215925656) = 0.09884825406796648
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08800566129737608) = 0.08551909781705538
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.03789080112973761) = 0.04292146667456269
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.03839383155976677) = 0.04334904254008747
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.021040791290087464) = 0.02859895831086006
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021773866344752184) = 0.029222072107325074
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 5:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.152519914124504) = 0.15107049843439982
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07735100756448413) = 0.08717692785838294
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2922983465608466) = 0.269882166005291
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.1301784541377315) = 0.1320802574456432
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.2174738234747024) = 0.20628132138206848
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06556307818700398) = 0.0771571878875248
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.06461537595072751) = 0.07635164098668981
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07706658504472094) = 0.07622088300229851
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14034122845690597) = 0.13000432990265579
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09903931502385727) = 0.09489770348456439
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10523678375654677) = 0.10016555190735046
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.10726622280538056) = 0.1018905750988592
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.019352449984876095) = 0.027163868201430394
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.1026197220915504) = 0.09794104949210355
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08758733883772388) = 0.08516352372635101
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.03852189385867868) = 0.043457895494162596
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.03888816995663265) = 0.04376923017742347
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.019843372871720118) = 0.02758115265524782
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021379774454263846) = 0.028887094000409987
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 6:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.1546474693597057) = 0.15287892038432127
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07553524921719991) = 0.08563353326319136
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2874930062882358) = 0.2657976267735719
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.13623098196201225) = 0.13722490609628182
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.20986231121083418) = 0.19981153595778048
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06747054150132276) = 0.07877853170469577
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.06876044046068949) = 0.0798749458201575
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07796281322710563) = 0.0769826769573255
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14105402542581919) = 0.13061020732623202
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09992310836947912) = 0.09564892782834297
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10335888667628944) = 0.09856933938913173
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.1054788421632739) = 0.10037130155306853
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.02003311038147009) = 0.027742429538535292
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.1035096012778017) = 0.09869744680041717
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08742546604755337) = 0.08502593185470608
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.03816025702737154) = 0.04315050418755152
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.038567750595333586) = 0.04349687372031927
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.02037811501977184) = 0.028035683481091776
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021290880931587753) = 0.028811534506135307
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 7:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.15208293995658434) = 0.15069907039166813
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07643946019216064) = 0.08640211259190797
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2904342902642575) = 0.26829771815319026
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.1330532520126531) = 0.13452383563932657
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.2149368055616914) = 0.20412485615600912
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06644940669339297) = 0.07791056711795545
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.06660384531926015) = 0.07804183994994256
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07757651480071323) = 0.07665432329489197
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14073480741097574) = 0.13033887201361508
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09944083533453563) = 0.095238995748641
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10451597475022327) = 0.0995528642519755
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.10632622229637284) = 0.10109157466620262
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.019713867877826346) = 0.027471073410438113
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.10295264084204284) = 0.09822403043002213
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08728388522343702) = 0.08490558815420719
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.03839809040668801) = 0.04335266255997053
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.038869274925752026) = 0.04375316940117494
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.020074260310613705) = 0.027777406978307363
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.02125648296367652) = 0.028782296233410755
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 8:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.15347654213020553) = 0.15188363223924614
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07534953519583407) = 0.0854756763450304
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.2885636388521225) = 0.2667076644528755
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.13511604825696727) = 0.13627721244699362
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.21237818730790342) = 0.20195003064028935
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06707442953829756) = 0.07844183653612435
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.0680416187186697) = 0.07926394733944069
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07779652579245169) = 0.07684133263786966
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.1408878021616283) = 0.13046891755166976
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09978889216703396) = 0.09553484405626458
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.1039470983289816) = 0.09906931929392007
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.10583502284939822) = 0.1006740551362742
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.0199105728503951) = 0.02763827263712155
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.1033097247286075) = 0.09852755173360209
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08726525611174357) = 0.08488975340926776
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.038264644945092297) = 0.04323923391761417
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.038692605235732626) = 0.04360300016465845
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.020218314933240524) = 0.027899853407540164
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021226397038551798) = 0.028756723197054745
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 9:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.15215259245824928) = 0.1507582750180833
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07594181611962307) = 0.08597911513025104
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.28983893575934067) = 0.26779166682401095
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.1339935929933153) = 0.13532312547288944
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.21407946967615638) = 0.20339612065330434
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06667691611321888) = 0.07810395012480748
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.06731667688009645) = 0.07864774677665341
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.07769406049038745) = 0.07675423713111505
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14081354251460365) = 0.1304057968516988
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09959892492093118) = 0.09537337189707722
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10429950174765798) = 0.099368862199795
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.1060780105236731) = 0.10088059465940785
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.019813863858784014) = 0.027556069994252128
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.10309583604533294) = 0.09834574635281872
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08723546136412569) = 0.08486442787379254
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.0383439271398161) = 0.043306623783129404
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.03881247915797334) = 0.043704892998563054
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.02013481102725484) = 0.027828875087452326
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.02122243835231694) = 0.028753358313755112
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Iterasi 10:
-  - Kalimat 3: (0.15000000000000002/7) + (0.85 * 0.15292703183625378) = 0.15141654848938715
-  - Kalimat 5: (0.15000000000000002/7) + (0.85 * 0.07537913750904165) = 0.08550083831125684
-  - Kalimat 7: (0.15000000000000002/7) + (0.85 * 0.28894335725472864) = 0.2670304250950908
-  - Kalimat 6: (0.15000000000000002/7) + (0.85 * 0.13474662359043751) = 0.1359632014804433
-  - Kalimat 11: (0.15000000000000002/7) + (0.85 * 0.21325722621910087) = 0.20269721371480717
-  - Kalimat 10: (0.15000000000000002/7) + (0.85 * 0.06694791670600274) = 0.07833430062867376
-  - Kalimat 9: (0.15000000000000002/7) + (0.85 * 0.06779870688443478) = 0.07905747228034099
+  - Kalimat 1: (0.15000000000000002/14) + (0.85 * 0.0777539653014987) = 0.07680515622055961
+  - Kalimat 3: (0.15000000000000002/14) + (0.85 * 0.14085169316461138) = 0.13043822490420537
+  - Kalimat 4: (0.15000000000000002/14) + (0.85 * 0.09972029670414354) = 0.09547653791280772
+  - Kalimat 6: (0.15000000000000002/14) + (0.85 * 0.10411785247725278) = 0.09921446031995057
+  - Kalimat 14: (0.15000000000000002/14) + (0.85 * 0.10593761526833737) = 0.10076125869237247
+  - Kalimat 2: (0.15000000000000002/14) + (0.85 * 0.019873772439959) = 0.027606992288250864
+  - Kalimat 7: (0.15000000000000002/14) + (0.85 * 0.10322503734949606) = 0.09845556746135736
+  - Kalimat 9: (0.15000000000000002/14) + (0.85 * 0.08722802606644312) = 0.08485810787076237
+  - Kalimat 11: (0.15000000000000002/14) + (0.85 * 0.038298548820806425) = 0.04326805221197118
+  - Kalimat 5: (0.15000000000000002/14) + (0.85 * 0.038743823649979185) = 0.04364653581676802
+  - Kalimat 8: (0.15000000000000002/14) + (0.85 * 0.020176118931881572) = 0.02786398680638505
+  - Kalimat 10: (0.15000000000000002/14) + (0.85 * 0.021216106968448136) = 0.02874797663746663
+  - Kalimat 12: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
+  - Kalimat 13: (0.15000000000000002/14) + (0.85 * 0.07142857142857142) = 0.07142857142857142
 
 
 Hasil Akhir PageRank:
-Kalimat 3: 0.15141654848938715
-Kalimat 5: 0.08550083831125684
-Kalimat 7: 0.2670304250950908
-Kalimat 6: 0.1359632014804433
-Kalimat 11: 0.20269721371480717
-Kalimat 10: 0.07833430062867376
-Kalimat 9: 0.07905747228034099
+Kalimat 1: 0.07680515622055961
+Kalimat 3: 0.13043822490420537
+Kalimat 4: 0.09547653791280772
+Kalimat 6: 0.09921446031995057
+Kalimat 14: 0.10076125869237247
+Kalimat 2: 0.027606992288250864
+Kalimat 7: 0.09845556746135736
+Kalimat 9: 0.08485810787076237
+Kalimat 11: 0.04326805221197118
+Kalimat 5: 0.04364653581676802
+Kalimat 8: 0.02786398680638505
+Kalimat 10: 0.02874797663746663
+Kalimat 12: 0.07142857142857142
+Kalimat 13: 0.07142857142857142
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-
-<span class="k">def</span> <span class="nf">calculate_pagerank</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">damping_factor</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
-    <span class="c1"># Inisialisasi PageRank</span>
-    <span class="n">pagerank</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
-
-    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
-        <span class="n">new_pagerank</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="c1"># Iterasi untuk setiap node</span>
-        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
-            <span class="n">rank_sum</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-                <span class="n">neighbor_outdegree</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)))</span>
-                <span class="n">rank_sum</span> <span class="o">+=</span> <span class="n">pagerank</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">/</span> <span class="n">neighbor_outdegree</span>
-
-            <span class="c1"># Hitung PageRank baru menggunakan rumus</span>
-            <span class="n">new_pagerank</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">damping_factor</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span> <span class="o">+</span> <span class="n">damping_factor</span> <span class="o">*</span> <span class="n">rank_sum</span>
-
-        <span class="c1"># Periksa konvergensi</span>
-        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">new_pagerank</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">-</span> <span class="n">pagerank</span><span class="p">[</span><span class="n">node</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">tolerance</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
-            <span class="k">break</span>
-
-        <span class="c1"># Perbarui nilai PageRank</span>
-        <span class="n">pagerank</span> <span class="o">=</span> <span class="n">new_pagerank</span>
-
-    <span class="k">return</span> <span class="n">pagerank</span>
-
-<span class="c1"># Contoh penggunaan</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
-
-<span class="n">result_pagerank</span> <span class="o">=</span> <span class="n">calculate_pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil Akhir PageRank:&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">result_pagerank</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalimat </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Akhir PageRank:
-Kalimat 1: 0.2047877610471576
-Kalimat 2: 0.29521223895284243
-Kalimat 3: 0.29521223895284243
-Kalimat 4: 0.2047877610471576
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
+<section id="mencari-4-kalimat-penting">
+<h2><strong>Mencari 4 Kalimat Penting</strong><a class="headerlink" href="#mencari-4-kalimat-penting" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung Eigenvector Centrality</span>
@@ -1831,10 +2343,10 @@ Node 3: 0.5573
 Node 4: 0.4352
 =============================
 Top 4 sentences based on PageRank:
-&quot;Kita berselawat dan berdoa agar pemilunya damai.
-Walaupun persaingannya ketat, tetapi kita saudara.
-Zulhas mengingatkan meski ada perbedaan, semua pihak tetap saudara satu bangsa.Pesan itu disampaikannya dalam kegiatan &#39;Do&#39;a &amp; Sholawat Pemilu Damai&#39; bersama Habib Syech Bin Abdul Qodir Assegaf di Bumi Perkemahan Pramuka Cibubur.
-Boleh beda, tapi kita saudara se-bangsa dan se-Tanah Air,&quot; ujar Zulhas, Senin (27/11/2023).ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Kita berselawat agar pemilunya damai dan lancar, demokratis.
+&quot;Saya kira nanti seperti apa persiapan Pemilu, tapi saya mengimbau di seluruh KBRI di luar negeri supaya menyelenggarakan Pemilu dengan baik dan supaya ada netralitas dari pihak kedutaan besar kita supaya Pemilu berjalan dengan jurdil,&quot; kata Ma&#39;ruf di Bratislava, Slovakia, Sabtu (25/11/2023).Ma&#39;ruf berharap Pemilu berjalan bersih sehingga kualitas demokrasi di Indonesia lebih baik.
+Dia mengingatkan jangan sampai ada tekanan.ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Itu dengan jujur dan adil, dengan bersih dan tidak ada tekanan dari mana-mana, supaya berjalan sesuai dengan kita harapkan supaya kualitas demokrasi kita menjadi lebih baik,&quot; tutur Ma&#39;ruf.Ma&#39;ruf menyampaikan pilihan setiap warga negara Indonesia harua dihormati.
+Ma&#39;ruf mengingatkan agar para petugas netral dalam melaksanakan pemilihan.
+Dia tidak ingin pesan netralitas hanya sebata slogan.
 =============================
 Top 3 node based on PageRank:
 Node 2 dengan PageRank 0.5573
@@ -1848,10 +2360,10 @@ Node 3: 0.5573
 Node 4: 0.4352
 =============================
 Top 4 sentences based on PageRank:
-&quot;Kita berselawat dan berdoa agar pemilunya damai.
-Walaupun persaingannya ketat, tetapi kita saudara.
-Zulhas mengingatkan meski ada perbedaan, semua pihak tetap saudara satu bangsa.Pesan itu disampaikannya dalam kegiatan &#39;Do&#39;a &amp; Sholawat Pemilu Damai&#39; bersama Habib Syech Bin Abdul Qodir Assegaf di Bumi Perkemahan Pramuka Cibubur.
-Boleh beda, tapi kita saudara se-bangsa dan se-Tanah Air,&quot; ujar Zulhas, Senin (27/11/2023).ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Kita berselawat agar pemilunya damai dan lancar, demokratis.
+&quot;Saya kira nanti seperti apa persiapan Pemilu, tapi saya mengimbau di seluruh KBRI di luar negeri supaya menyelenggarakan Pemilu dengan baik dan supaya ada netralitas dari pihak kedutaan besar kita supaya Pemilu berjalan dengan jurdil,&quot; kata Ma&#39;ruf di Bratislava, Slovakia, Sabtu (25/11/2023).Ma&#39;ruf berharap Pemilu berjalan bersih sehingga kualitas demokrasi di Indonesia lebih baik.
+Dia mengingatkan jangan sampai ada tekanan.ADVERTISEMENTSCROLL TO CONTINUE WITH CONTENT&quot;Itu dengan jujur dan adil, dengan bersih dan tidak ada tekanan dari mana-mana, supaya berjalan sesuai dengan kita harapkan supaya kualitas demokrasi kita menjadi lebih baik,&quot; tutur Ma&#39;ruf.Ma&#39;ruf menyampaikan pilihan setiap warga negara Indonesia harua dihormati.
+Ma&#39;ruf mengingatkan agar para petugas netral dalam melaksanakan pemilihan.
+Dia tidak ingin pesan netralitas hanya sebata slogan.
 =============================
 Top 4 node based on PageRank:
 Node 2 dengan PageRank 0.5573
@@ -1862,6 +2374,7 @@ Node 4 dengan PageRank 0.4352
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1918,6 +2431,36 @@ Node 4 dengan PageRank 0.4352
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crowling-artikel-berita-dari-website"><strong>Crowling Artikel Berita dari Website</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-kalimat"><strong>Tokenisasi Kalimat</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf"><strong>TF-IDF</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-smilarity"><strong>Cosine Smilarity</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-kalimat-ke-dalam-bentuk-graph"><strong>Visualisasi Kalimat Ke dalam Bentuk Graph</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality"><strong>Closeness Centrality</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank"><strong>PageRank</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Rumus</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-4-kalimat-penting"><strong>Mencari 4 Kalimat Penting</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
