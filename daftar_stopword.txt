@@ -20,4 +20,5 @@ km
 loh
 kok
 dpt
-
+iya
+wes
